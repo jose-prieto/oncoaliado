@@ -4,11 +4,61 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { EventosComponent } from './eventos/eventos.component';
+import { TelemedicinaComponent } from './telemedicina/telemedicina.component';
+import { TelemedicinaFormualarioComponent } from './telemedicina-formualario/telemedicina-formualario.component';
+import { TelemedicinaPagoComponent } from './telemedicina-pago/telemedicina-pago.component';
+import { GestionCitasComponent } from './gestion-citas/gestion-citas.component';
+import { CrearCitaComponent } from './crear-cita/crear-cita.component';
+import { CitaComponent } from './cita/cita.component';
+import { ModificarCitaComponent } from './modificar-cita/modificar-cita.component';
+import { GestionUsuariosComponent } from './gestion-usuarios/gestion-usuarios.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { ModificarUsuarioComponent } from './modificar-usuario/modificar-usuario.component';
+import { GestionPagosComponent } from './gestion-pagos/gestion-pagos.component';
+import { PagoComponent } from './pago/pago.component';
+import { ModificarPagoComponent } from './modificar-pago/modificar-pago.component';
+import { GestionEventosComponent } from './gestion-eventos/gestion-eventos.component';
+import { EventoComponent } from './evento/evento.component';
+import { CrearEventoComponent } from './crear-evento/crear-evento.component';
+import { ModificarEventoComponent } from './modificar-evento/modificar-evento.component';
+import { GestionTipoCitaComponent } from './gestion-tipo-cita/gestion-tipo-cita.component';
+import { TipoCitaComponent } from './tipo-cita/tipo-cita.component';
+import { CrearTipoCitaComponent } from './crear-tipo-cita/crear-tipo-cita.component';
+import { MedicosComponent } from './medicos/medicos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegistroComponent,
+    EventosComponent,
+    TelemedicinaComponent,
+    TelemedicinaFormualarioComponent,
+    TelemedicinaPagoComponent,
+    GestionCitasComponent,
+    CrearCitaComponent,
+    CitaComponent,
+    ModificarCitaComponent,
+    GestionUsuariosComponent,
+    UsuarioComponent,
+    CrearUsuarioComponent,
+    ModificarUsuarioComponent,
+    GestionPagosComponent,
+    PagoComponent,
+    ModificarPagoComponent,
+    GestionEventosComponent,
+    EventoComponent,
+    CrearEventoComponent,
+    ModificarEventoComponent,
+    GestionTipoCitaComponent,
+    TipoCitaComponent,
+    CrearTipoCitaComponent,
+    MedicosComponent
   ],
   imports: [
     BrowserModule,
