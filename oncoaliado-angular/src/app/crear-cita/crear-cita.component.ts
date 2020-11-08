@@ -21,7 +21,7 @@ export class CrearCitaComponent implements OnInit {
               private citaService:CitaService) { }
 
   ngOnInit(): void {
-  this.tipoCitaService.getTiposCita().subscribe(T=>this.tiposCitas=T)
+  this.tipoCitaService.getTiposCitas().subscribe(T=>this.tiposCitas=T)
   
   }
 
