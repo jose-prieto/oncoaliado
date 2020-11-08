@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
+//Componentes
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -30,6 +32,13 @@ import { TipoCitaComponent } from './tipo-cita/tipo-cita.component';
 import { CrearTipoCitaComponent } from './crear-tipo-cita/crear-tipo-cita.component';
 import { MedicosComponent } from './medicos/medicos.component';
 
+
+//Servicios
+import { EventoService } from "./services/evento.service";
+import { UsuarioService } from "./services/usuario.service";
+import { MedicoService } from "./services/medico.service";
+import { TipoCitaService } from "./services/tipo-cita.service";
+import { CitaService } from "./services/cita.service";
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +73,13 @@ import { MedicosComponent } from './medicos/medicos.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    EventoService,
+    UsuarioService,
+    MedicoService,
+    TipoCitaService,
+    CitaService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
