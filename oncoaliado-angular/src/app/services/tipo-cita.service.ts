@@ -20,7 +20,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class TipoCitaService {
 
   constructor() { }
-  getTiposCita():Observable<TipoCita[]>{
+  getTiposCitas():Observable<TipoCita[]>{
 
     return of(TIPOSCITA).pipe(delay(2000))
   }

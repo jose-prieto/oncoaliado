@@ -39,6 +39,8 @@ import { UsuarioService } from "./services/usuario.service";
 import { MedicoService } from "./services/medico.service";
 import { TipoCitaService } from "./services/tipo-cita.service";
 import { CitaService } from "./services/cita.service";
+import { PagoService } from "./services/pago.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +81,7 @@ import { CitaService } from "./services/cita.service";
     MedicoService,
     TipoCitaService,
     CitaService,
+    PagoService
   ],
   bootstrap: [AppComponent]
 })
