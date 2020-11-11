@@ -4,22 +4,47 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import modelos.ESTADO;
+import modelos.PAIS;
 
 public class testUsuarios {
-    
-    private static EntityManager manager;
-    
-    private static EntityManagerFactory emf;
+
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("cliente");
 
     public static void main(String[] args) {
-        
-        emf = Persistence.createEntityManagerFactory("cliente");
-        manager = emf.createEntityManager();
-        
-        List paises =  manager.createQuery("FROM PAIS").getResultList();
-        System.out.println("Existen: " + paises.size() + " paises.");
-        
+
+        crearDatos();
+        imprimirDatos();
+
     }
-    
-    
+
+    static void crearDatos() {
+        EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
+
+        PAIS pais = new PAIS(1, "venezuela");
+        em.persist(pais);
+
+        em.persist(new ESTADO(1, "caracas", pais));
+        em.persist(new ESTADO(2, "maracaibo", pais));
+
+        em.getTransaction().commit();
+
+        em.close();
+    }
+
+    static void imprimirDatos() {
+        EntityManager em = emf.createEntityManager();
+        
+        PAIS pais = em.find(PAIS.class, 1);
+        List<ESTADO> estados = pais.getEstados();
+        
+        for (ESTADO estado : estados) {
+            System.out.println("* " + estado.toString());
+        }
+
+        System.out.println(pais.toString());
+    }
+
 }

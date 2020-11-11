@@ -1,18 +1,18 @@
 package modelos;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PAIS")
-public class PAIS implements Serializable {
+@Table(name = "ESTADO")
+public class ESTADO implements Serializable {
 
     @Id
     @Column(name = "id", columnDefinition = "INT NOT NULL")
@@ -21,15 +21,17 @@ public class PAIS implements Serializable {
     @Column(name = "nombre", columnDefinition = "VARCHAR(60) NOT NULL")
     private String nombre;
 
-    @OneToMany(mappedBy = "pais")
-    private List<ESTADO> estados = new ArrayList<>(); 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_pais")
+    private PAIS pais;
 
-    public PAIS() {
+    public ESTADO() {
     }
 
-    public PAIS(int id, String nombre) {
+    public ESTADO(int id, String nombre, PAIS pais) { 
         this.id = id;
         this.nombre = nombre;
+        this.pais = pais;
     }
 
     public int getId() {
@@ -48,20 +50,19 @@ public class PAIS implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<ESTADO> getEstados() {
-        return estados;
+    public PAIS getPais() {
+        return pais;
     }
 
-    public void setEstados(List<ESTADO> estados) {
-        this.estados = estados;
+    public void setPais(PAIS pais) {
+        this.pais = pais;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 53 * hash + this.id;
-        hash = 53 * hash + Objects.hashCode(this.nombre);
-        hash = 53 * hash + Objects.hashCode(this.estados);
+        hash = 29 * hash + this.id;
+        hash = 29 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -76,14 +77,14 @@ public class PAIS implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final PAIS other = (PAIS) obj;
+        final ESTADO other = (ESTADO) obj;
         if (this.id != other.id) {
             return false;
         }
         if (!Objects.equals(this.nombre, other.nombre)) {
             return false;
         }
-        if (!Objects.equals(this.estados, other.estados)) {
+        if (!Objects.equals(this.pais, other.pais)) {
             return false;
         }
         return true;
@@ -91,7 +92,7 @@ public class PAIS implements Serializable {
 
     @Override
     public String toString() {
-        return "PAIS{" + "id=" + id + ", nombre=" + nombre + '}';
+        return "ESTADO{" + "id=" + id + ", nombre=" + nombre + ", pais=" + pais.toString() + '}';
     }
 
 }
