@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //Componentes
@@ -40,6 +41,7 @@ import { MedicoService } from "./services/medico.service";
 import { TipoCitaService } from "./services/tipo-cita.service";
 import { CitaService } from "./services/cita.service";
 import { PagoService } from "./services/pago.service";
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -69,11 +71,13 @@ import { PagoService } from "./services/pago.service";
     GestionTipoCitaComponent,
     TipoCitaComponent,
     CrearTipoCitaComponent,
-    MedicosComponent
+    MedicosComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [
     EventoService,

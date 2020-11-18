@@ -1,0 +1,143 @@
+body{
+    margin: 0%;
+    
+}
+
+.barra{
+    
+    width: 100vw;
+    height: 70px;
+    
+    background-color: #ffffff;
+}
+
+.barra img{
+    
+    display: inline-block;
+    
+    
+}
+
+.active{
+    border-bottom: solid 4px #00a880;
+    line-height: 1em;
+}
+.logo{
+    height: 70px;
+    margin-left: 10px;
+}
+.lineas{
+
+    margin-top: 10px;
+    width: 50px;
+    margin-right: 10px;
+    float: right;
+}
+.login{
+    display: none;
+    margin-top: 10px;
+    width: 50px;
+    margin-right: 10px;
+    float: right;
+
+}
+
+.menu{
+    position: absolute;
+    width: 100vw;
+    background: rgba(51, 51, 51 , 0.9);
+    top: 70px;
+    height: calc(100vh - 70px);
+    
+}
+a{
+    text-decoration: none;
+    color: #7d7977;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+}
+.menu a{
+    display: block;
+    height: 30px;
+    padding: 15px;
+    
+
+}
+.menu a:hover{
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+.opciones a{
+    float: right;
+    /* background-color: aqua; */
+    height: 45px;
+    margin-right: 10px;
+    width: 110px;
+    text-align: center;
+    padding-top: 25px;
+}
+.barra .login{
+    display: none;
+}
+.barra .opciones{
+    display: none;
+}
+
+.menulogin{
+    color: #ffffff;
+    top: 75px;
+    right: 0px;
+    width: 30%;
+    position: absolute;
+    background-color: rgba(0, 168, 128, 0.15);
+}
+
+.menulogin p{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.menulogin input{
+    display: block;
+    margin-left: 10%;
+    height: 20px;
+    width: 80%;
+    margin-bottom: 8px;
+}
+
+.menulogin button{
+    height: 20px;
+    width: 30%;
+    display: block;
+    color: #ffffff;
+    background-color: #008157;
+    margin-left: 35%;
+    margin-bottom: 8px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+@media (min-width:1024px){
+    .barra .lineas{
+        display: none;
+    }
+    .barra .login{
+        display: block;
+    }
+    .barra .opciones{
+        display: inline-block;
+        float: right;
+        /* background-color: rebeccapurple; */
+        height: 100%;
+        width: 70%;
+    }
+
+
+}
