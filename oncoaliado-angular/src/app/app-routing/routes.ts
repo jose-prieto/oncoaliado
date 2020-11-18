@@ -17,6 +17,7 @@ import { CrearEventoComponent } from "../crear-evento/crear-evento.component";
 import { ModificarEventoComponent } from "../modificar-evento/modificar-evento.component";
 import { GestionTipoCitaComponent } from "../gestion-tipo-cita/gestion-tipo-cita.component";
 import { CrearTipoCitaComponent } from "../crear-tipo-cita/crear-tipo-cita.component";
+import { ContactosComponent } from "../contactos/contactos.component";
 
 export const routes:Routes=[
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -34,6 +35,7 @@ export const routes:Routes=[
     {path:"crearEvento", component:CrearEventoComponent},
     {path:"gestionTipoCita", component:GestionTipoCitaComponent},
     {path:"crearTipoCita", component:CrearTipoCitaComponent},
+    {path:"contactos", component:ContactosComponent}
 
 
 ]

@@ -29,8 +29,17 @@ export class NavComponent implements OnInit {
   }
 
   onResize(){
-    this.visibility="hidden"
-    this.visibility2="hidden"
+    console.log("height"+ window.innerHeight)
+    console.log("width"+ window.innerWidth)
+
+    if(window.innerWidth>1023){
+      this.visibility="hidden"
+    }
+    if(window.innerWidth<1023){
+      this.visibility2="hidden"
+    }
+    
+    
   }
 
   menuLogin(){

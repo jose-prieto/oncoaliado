@@ -1,14 +1,18 @@
 <div class="barra">
-    <img src="/assets/images/Logo.png" alt="" class="logo">
+    <img src="/assets/images/Logo.png" alt="" class="logo" >
 
     <img src="/assets/images/lineas.png" alt="" class="lineas" (click)="menu()">
-    <img src="/assets/images/login.png" alt="" class="login" (click)="menuLogin()">
+    
+    <div class="loginb" [ngClass]="{'logina' : visibility2=='shown'}">
+    <img src="/assets/images/login.png" alt="" class="login" (click)="menuLogin()" >
+    </div>
+    
     <div class="opciones">
         
         
         <a routerLink="/eventos" routerLinkActive="active">Eventos</a>
         <a routerLink="/telemedicina" routerLinkActive="active">Telemedicina</a>
-        <a routerLink="/home" routerLinkActive="active">Contactos</a>
+        <a routerLink="/contactos" routerLinkActive="active">Contactos</a>
         <a routerLink="/home" routerLinkActive="active">Home</a>
     </div>
 
@@ -19,7 +23,7 @@
 
 <div class="menu" [@visibility]="visibility" (window:resize)="onResize()">
     <a routerLink="/home" >Home</a>
-    <a href="">Contactos</a>
+    <a routerLink="/contactos">Contactos</a>
     <a routerLink="/telemedicina">Telemedicina</a>
     <a routerLink="/eventos">Eventos</a>
     <a routerLink="/login">Ingresar</a>

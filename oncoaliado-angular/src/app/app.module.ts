@@ -42,6 +42,7 @@ import { TipoCitaService } from "./services/tipo-cita.service";
 import { CitaService } from "./services/cita.service";
 import { PagoService } from "./services/pago.service";
 import { NavComponent } from './nav/nav.component';
+import { ContactosComponent } from './contactos/contactos.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { NavComponent } from './nav/nav.component';
     TipoCitaComponent,
     CrearTipoCitaComponent,
     MedicosComponent,
-    NavComponent
+    NavComponent,
+    ContactosComponent
   ],
   imports: [
     BrowserModule,
