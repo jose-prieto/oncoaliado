@@ -1,21 +1,21 @@
 CREATE DATABASE ONCOALIADO;
 
 CREATE TABLE PAIS (
-	id INT NOT NULL,
+	id INT AUTO_INCREMENT,
     nombre VARCHAR(60) NOT NULL,
     CONSTRAINT pk_pais PRIMARY KEY (id)
 );
 
 CREATE TABLE ESTADO (
-	id INT NOT NULL,
+	id INT AUTO_INCREMENT,
     nombre VARCHAR(60) NOT NULL,
-    id_pais INT NOT NULL,
+    id_pais INT,
     CONSTRAINT pk_estado PRIMARY KEY (id, id_pais),
     CONSTRAINT fk_pais FOREIGN KEY (id_pais) REFERENCES PAIS (id)
 );
 
 CREATE TABLE USUARIO (
-    correo VARCHAR(50) NOT NULL,
+    correo VARCHAR(50) UNIQUE,
     contrasena VARCHAR(30) NOT NULL,
     nombre1 VARCHAR(50) NOT NULL,
     nombre2 VARCHAR(50),
@@ -25,15 +25,15 @@ CREATE TABLE USUARIO (
     genero VARCHAR(50) NOT NULL,
     foto LONGBLOB,
     direccion VARCHAR(50) NOT NULL,
-    id_estado INT NOT NULL,
-    id_pais INT NOT NULL,
-    CONSTRAINT pk_usuario PRIMARY KEY (correo),
+    id_estado INT,
+    id_pais INT,
+    CONSTRAINT pk_usuario PRIMARY KEY (correo, id_estado, id_pais),
     CONSTRAINT fk_direccion FOREIGN KEY (id_estado, id_pais) REFERENCES ESTADO (id, id_pais),
     CONSTRAINT check_genero CHECK (genero in ('hombre', 'mujer'))
 );
 
 CREATE TABLE EVENTO (
-    id INT NOT NULL,
+    id INT AUTO_INCREMENT UNIQUE,
     titulo VARCHAR(200) NOT NULL,
     direccion VARCHAR (200),
     tipo VARCHAR(50) NOT NULL,
@@ -42,80 +42,87 @@ CREATE TABLE EVENTO (
     fecha DATE NOT NULL,
     id_estado INT,
     id_pais INT,
-    CONSTRAINT pk_evento PRIMARY KEY (id),
+    CONSTRAINT pk_evento PRIMARY KEY (id, id_estado, id_pais),
     CONSTRAINT fk_lugar FOREIGN KEY (id_estado, id_pais) REFERENCES ESTADO (id, id_pais),
-    CONSTRAINT tipo_check CHECK (tipo in ('salud', 'educativo', 'otro'))
+    CONSTRAINT tipo_check CHECK (tipo in ('salud', 'educativo', 'otro')),
+    CONSTRAINT estatus_check CHECK (tipo in ('visible', 'no visible'))
 );
 
 CREATE TABLE HIST_CAMBIO (
-    id INT NOT NULL,
+    id INT AUTO_INCREMENT,
     descripcion VARCHAR(500) NOT NULL,
     fecha DATE NOT NULL,
-    correo VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_cambio PRIMARY KEY (id, correo),
+    correo VARCHAR(50),
+    CONSTRAINT pk_cambio PRIMARY KEY (id),
     CONSTRAINT fk_usuario_cambio FOREIGN KEY (correo) REFERENCES USUARIO (correo)
 );
 
 CREATE TABLE PACIENTE (
-    id INT NOT NULL,
+    id INT AUTO_INCREMENT UNIQUE,
     correo VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_paciente PRIMARY KEY (id, correo),
-    CONSTRAINT fk_usuario_paciente FOREIGN KEY (correo) REFERENCES USUARIO (correo)
+    id_estado INT,
+    id_pais INT,
+    CONSTRAINT pk_paciente PRIMARY KEY (id, correo, id_estado, id_pais),
+    CONSTRAINT fk_usuario_paciente FOREIGN KEY (correo, id_estado, id_pais) REFERENCES USUARIO (correo, id_estado, id_pais)
 );
 
 CREATE TABLE MEDICO (
-    id INT NOT NULL,
+    id INT AUTO_INCREMENT UNIQUE,
     descripcion VARCHAR(500) NOT NULL,
     correo VARCHAR(50) NOT NULL,
-    CONSTRAINT pk_medico PRIMARY KEY (id, correo),
-    CONSTRAINT FK_USUARIO_MEDICO FOREIGN KEY (correo) REFERENCES USUARIO (correo)
+    id_estado INT,
+    id_pais INT,
+    CONSTRAINT pk_medico PRIMARY KEY (id, correo, id_estado, id_pais),
+    CONSTRAINT FK_USUARIO_MEDICO FOREIGN KEY (correo, id_estado, id_pais) REFERENCES USUARIO (correo, id_estado, id_pais)
 );
 
 CREATE TABLE ESPECIALIDAD (
-	id INT NOT NULL,
+	id INT AUTO_INCREMENT,
     nombre VARCHAR(30) NOT NULL,
     descripcion VARCHAR (100),
     CONSTRAINT pk_especialidad PRIMARY KEY (id)
 );
 
 CREATE TABLE ESPECIALIDAD_MEDICO (
-	id_medico INT NOT NULL,
-    correo_user VARCHAR(50) NOT NULL,
-    id_especialidad INT NOT NULL,
+	id_medico INT,
+    correo_user VARCHAR(50),
+    id_especialidad INT,
+    id_estado INT,
+    id_pais INT,
     CONSTRAINT pk_especialidad_medico PRIMARY KEY (id_medico, correo_user, id_especialidad),
-    CONSTRAINT fk_medico FOREIGN KEY (id_medico, correo_user) REFERENCES MEDICO (id, correo),
+    CONSTRAINT fk_medico FOREIGN KEY (id_medico, correo_user, id_estado, id_pais) REFERENCES MEDICO (id, correo, id_estado, id_pais),
     CONSTRAINT fk_especialidad FOREIGN KEY (id_especialidad) REFERENCES ESPECIALIDAD (id)
 );
 
 CREATE TABLE TIPO_CITA (
-	id INT NOT NULL,
+	id INT AUTO_INCREMENT,
     nombre VARCHAR(30) NOT NULL,
     descripcion VARCHAR(100),
     CONSTRAINT pk_tipo_cita PRIMARY KEY (id)
 );
 
 CREATE TABLE HIST_PRECIO (
-	fecha_inicio DATE NOT NULL,
+	fecha_inicio DATE,
     fecha_fin DATE,
     precio DECIMAL(15,2),
-    id_tipo_cita INT NOT NULL,
+    id_tipo_cita INT,
     CONSTRAINT pk_historico_precio PRIMARY KEY (fecha_inicio, id_tipo_cita),
     CONSTRAINT fk_tipo_cita FOREIGN KEY (id_tipo_cita) REFERENCES TIPO_CITA(id)
 );
 
 CREATE TABLE FACTURA (
-	id INT NOT NULL,
+	id INT AUTO_INCREMENT,
     fecha DATE NOT NULL,
     comprobante INT NOT NULL,
     banco VARCHAR(40) NOT NULL,
     estatus VARCHAR(40) NOT NULL,
     total DECIMAL(15,2),
     CONSTRAINT pk_factura PRIMARY KEY (id),
-    CONSTRAINT check_estatus CHECK(estatus in ('pagado, pendiente'))
+    CONSTRAINT check_estatus CHECK(estatus in ('pagado', 'pendiente'))
 );
 
 CREATE TABLE CITA (
-	id INT NOT NULL,
+	id INT AUTO_INCREMENT,
 	estatus VARCHAR(50) NOT NULL,
     fecha DATE NOT NULL,
     descripcion VARCHAR(200),
