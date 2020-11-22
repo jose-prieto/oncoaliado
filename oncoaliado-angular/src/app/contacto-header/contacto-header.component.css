@@ -1,0 +1,41 @@
+
+
+
+.contenedor{
+    top: 0%;
+    left: 0%;
+    float: left;
+    position: static;
+    
+    width: 100%;
+    height: 100%;
+    
+
+}
+.contenedor .imagenes{
+    top: 0%;
+    left: 0%;
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor .img-fondo{
+    top: 0%;
+    left: 0%;
+    float: left;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    
+}
+
+.contenedor .img-portada{
+    top: 0%;
+    left: 0%;
+    float: left;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}

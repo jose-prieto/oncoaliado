@@ -43,6 +43,9 @@ import { CitaService } from "./services/cita.service";
 import { PagoService } from "./services/pago.service";
 import { NavComponent } from './nav/nav.component';
 import { ContactosComponent } from './contactos/contactos.component';
+import { ContactoHeaderComponent } from './contacto-header/contacto-header.component';
+import { ContactoFormularioComponent } from './contacto-formulario/contacto-formulario.component';
+import { ContactoDonacionesComponent } from './contacto-donaciones/contacto-donaciones.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +77,10 @@ import { ContactosComponent } from './contactos/contactos.component';
     CrearTipoCitaComponent,
     MedicosComponent,
     NavComponent,
-    ContactosComponent
+    ContactosComponent,
+    ContactoHeaderComponent,
+    ContactoFormularioComponent,
+    ContactoDonacionesComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class TelemedicinaComponent implements OnInit {
 
   ngOnInit(): void {
     this.medicoService.getMedicos().subscribe(M=> this.medicos=M)
-
+    document.body.classList.remove('bg-img');
   }
 
 }

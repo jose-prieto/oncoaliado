@@ -1,16 +1,22 @@
 .contenedor{
-    width: 100%;
+    width: 100vw;
     float: left;
     position: static;
+    top: 0%;
+    left: 0%;
     
+    height: 100%;
 }
 
 .head{
+    top: 0%;
+    left: 0%;
+    width: max-content;
     position: relative;
     float: left;
     width: 100vw;
+    height: 100%;
     
-    background-color: brown;
 }
 .i1{
     
@@ -52,9 +58,9 @@
     position: absolute;
     margin-left: 41%;
     width: 18%;
-    background-color: aquamarine;
+   
     z-index: 4;
-    top: 70%;
+    top: 40%;
 }
 .botones img{
     
@@ -81,14 +87,220 @@
     
 }
 .caja{
-    clear: both;
-    position: static;
+    float: left;
+    
+    
     top: 0%;
+    left: 0%;
     width: 100%;
     height: 250px;
-    background-color: aqua;
+    
+}
+
+.medicos{
+    float: left;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+
+
+}
+
+.medicos img{
+    float: left;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+
 }
 
 
+.foot{
+    float: left;
+    top: 0%;
+    left: 0%;
+    position: relative;
 
+
+
+    width: 100%;
+    
+  
+}
+
+.alianza{
+    float: left;
+    background-image: url('/assets/images/alianza-fondo.jpg');
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+
+    width: 100%;
+    height: 300px;
+
+}
+
+.alianza h2{
+    
+    padding-top: 2%;
+    font-size: 200%;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Lucida Sans";
+}
+
+.imagen-alianza{
+    float: left;
+    display: block;
+    width: 50%;
+    height: 30%;
+    
+}
+
+.imagen-alianza img{
+    display: inline-block;
+    
+   
+    
+}
+.chevron img{
+    height:100%;
+  margin-left: 25%;
+
+}
+.sociedad img{
+    height:85%;
+}
+
+.rotary img{
+    width: 80%;
+
+
+}
+
+.robotica img{
+    width: 80%;
+}
+
+.frase{
+    position: relative;
+    top: 0;
+    left: 0;
+    float: left;
+    width: 100%;
+}
+
+.frase img{
+    float: left;
+    width: 40%;
+}
+
+.palabras{
+    
+    position: absolute;
+    float: left;
+    background-image: url('/assets/images/fondofrase.jpg');
+    background-position: center;
+    background-repeat: no-repeat; 
+    background-size: cover;
+    width: 60%;
+    height: 100%;
+    top: 0%;
+    right: 0;
+
+}
+.palabras p{
+    font-family: "Lucida Sans";
+    font-size: 70%;
+    text-align: center;
+}
+.palabras img{
+    width: 100%;
+}
+
+@media (min-width:480px){
+    .palabras p{
+        font-family: "Lucida Sans";
+        font-size: 100%;
+        text-align: center;
+    }
+
+}
+
+@media (min-width:768px){
+    .palabras p{
+        font-family: "Lucida Sans";
+        font-size: 150%;
+        text-align: center;
+    }
+
+
+    .imagen-alianza{
+        float: left;
+        display: block;
+        width: 25%;
+        height: 30%;
+        
+    }
+
+}
+
+@media (min-width:1024px){
+    .alianza{
+        
+        width: 55%;
+        height: 286px;
+    
+    }
+
+    
+
+    .frase{
+        position: relative;
+        right: 0%;
+        width: 45%;
+        height: 100%;
+        
+    }
+    .frase .foto{
+        height: 100%;
+    }
+
+    .palabras p{
+        font-family: "Lucida Sans";
+        font-size: 90%;
+        margin-right: 15px;
+        text-align: center;
+    }
+
+
+
+    .chevron img{
+        height:90%;
+        
+    
+    }
+    .sociedad img{
+        height:75%;
+    }
+    
+    .rotary img{
+        margin-top: 20px;
+        width: 65%;
+        
+    
+    }
+    
+    .robotica img{
+        margin-top: 20px;
+        width: 80%;
+    }
+    .alianza h2{
+    
+        margin-bottom: 60px;
+    }
+
+
+
+}
 
