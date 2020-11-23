@@ -29,6 +29,10 @@ export class HomeComponent implements OnInit {
     document.body.classList.add('bg-img');
   }
 
+  ValidarTamaño():boolean{
+    return true
+  }
+
   sliderEvento(numero:number){
     console.log("hola")
     if(numero==1){

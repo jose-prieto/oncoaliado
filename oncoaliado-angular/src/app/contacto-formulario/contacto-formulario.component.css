@@ -1,57 +1,279 @@
 
-
 .contenedor{
     float: left;
     position: relative;
     width: 100%;
-    
-    background-color: gold;
+    font-family: "Lucida Sans";
+    color: #ffffff;
+
 
 }
 
-.contacto{
+.informacion{
+    float: left;
+    width: 100%;
     font-family: "Lucida Sans";
     text-align: center;
 }
 
-.telefono img, .correo img{
-    margin-left: auto;
-    margin-right: auto;
-    float: left;
-    width: 40px;
-
-}
 
 
-.telefono, .correo{
-    text-align: left;
-}
-
-.telefono{
-    
-    margin-left: auto;
-    margin-right: auto;
-    
-    width: 50%;
-    background-color: aquamarine;
-}
-.correo {
-    margin-left: auto;
-    margin-right: auto;
-    width: max-content;
+.contactanos{
     width: 80%;
-    background-color: brown;
-}
-
-.formulario p{
+    float: left;
+    position: relative;
+    margin: 0 10%;
+    text-align: none;
     
 }
+
+.telefono p, .correo p{
+    display: inline;
+}
+.telefono img, .correo img{
+    width: 30px;
+    
+}
+
+.telefono, .correo {    
+    width: 80%;
+    margin: 0 10%;
+
+}
+.telefono{
+    margin-bottom: 10px;
+
+}
+.correo{
+    margin-bottom: 10px;
+
+}
+
+
+
+
+
+
+
+
+
 
 .ubicanos{
-    background-color: blueviolet;
-    width: 60%;
+    float: left;
+
+    width: 100%;
 }
 .ubicacion{
-    
+    margin-left:15% ;
+    float: left;
+  
+    width: 20%;
+}
+.ubicacion img{
+    width:100%;
 }
 
+.redes{
+    float: left;
+    width: 50%;
+   
+}
+.redes img{
+    width: 25%;
+}
+
+.map{
+    width: 50%;
+    float: left;
+
+}
+.map img{
+    width: 100%;
+}
+
+.linea{
+    float: left;
+    width: 80%;
+    border: #ffffff 2px solid;
+    position: relative;
+    margin-left: 10%;
+}
+
+.formulario{
+    width: 100%;
+    font-family: "Lucida Sans";
+    float: left;
+    position: relative;
+}
+
+.formulario h2{
+    text-align: center;
+    color: #ffffff;
+}
+
+.campos input, .campos textarea{
+
+    border: 2px solid #ffffff;
+    margin-left: 10%;
+    width: 80%;
+    background: transparent;
+    font-family: "Lucida Sans";
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.boton{
+    float: left;
+    position: relative;
+    width: 80%;
+
+    margin-left: 10%;
+}
+
+.boton img{
+    
+    width: 30px;
+    float: right;
+   
+}
+
+
+@media (min-width:480px){
+    .ubicacion{
+        margin-left:22% ;
+        float: left;
+   
+        width: 15%;
+    }
+    .redes{
+        width: 40%;
+    }
+
+    .map{
+        width: 40%;
+    }
+    .telefono, .correo {    
+        width: 70%;
+        margin: 0 15%;
+       
+    }
+
+
+}
+
+@media (min-width:500px){
+
+    .telefono, .correo {    
+        width: 60%;
+        margin: 0 20%;
+       
+    }
+
+}
+
+@media (min-width:500px){
+    .telefono, .correo {    
+        width: 60%;
+        margin: 0 20%;   
+    }
+}
+
+
+@media (min-width:600px){
+
+    .telefono, .correo {    
+        width: 50%;
+        margin: 0 25%;   
+    }
+
+
+}
+
+@media (min-width:768px){
+    .telefono, .correo {    
+        width: 40%;
+        margin: 0 30%;   
+    }
+
+    .ubicanos{
+        width: 40%;
+        margin-left: 30%;
+    }
+
+    .ubicacion{
+        margin-left: 0%;
+        width: 40%;
+    }
+    .redes{
+        width: 60%;
+    }
+
+    .map{
+        width: 60%;
+    }
+
+
+}
+
+@media (min-width:1024px){
+    .contenedor{
+        width: 48%;
+    }
+    .linea{
+        margin: 0%;
+        float: left;
+        border: none;
+        background-color: #ffffff;
+        width: 0.5%;
+        height: 60%;
+    }
+    .formulario{
+        width: 48%;
+    }
+    .informacion {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .informacion p{
+        text-align: left;
+        margin-left: 15px;
+    }
+    .informacion h2{
+        text-align: left;
+        font-size: 200%;
+    }
+    .contactanos{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .telefono, .correo {    
+        width: 100%;
+        margin: 0 ;   
+    }
+    .telefono{
+        margin-bottom: 10px;
+   
+    }
+
+
+    .ubicanos{
+        width: 60%;
+        margin-left: 10%;
+    }
+
+    .ubicacion{
+        margin-left: 0%;
+        width: 40%;
+    }
+    .redes{
+        margin-top: 40px;
+        width: 50%;
+    }
+
+    .map{
+        width: 50%;
+    }
+
+
+
+}
