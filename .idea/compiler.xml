@@ -7,10 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Backend" />
+        <module name="DTOs" />
+        <module name="DAOs" />
+        <module name="Entidades" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Backend" target="1.5" />
+      <module name="DAOs" target="1.5" />
+      <module name="DTOs" target="1.5" />
+      <module name="Entidades" target="1.5" />
+      <module name="Oncoaliado" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
