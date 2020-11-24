@@ -3,13 +3,25 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
     <persistence-unit name="ormprueba">
-        <class>ucab.dsw.entidades.TipoUsuario</class>
+
+        <class>ucab.dsw.entidades.Pais</class>
         <class>ucab.dsw.entidades.Usuario</class>
-        <class>ucab.dsw.entidades.TipoPregunta</class>
+        <class>ucab.dsw.entidades.Cita</class>
+        <class>ucab.dsw.entidades.Especialidad</class>
+        <class>ucab.dsw.entidades.EspecialidadMedico</class>
+        <class>ucab.dsw.entidades.Estado</class>
+        <class>ucab.dsw.entidades.Evento</class>
+        <class>ucab.dsw.entidades.Factura</class>
+        <class>ucab.dsw.entidades.HistCambio</class>
+        <class>ucab.dsw.entidades.HistPrecio</class>
+        <class>ucab.dsw.entidades.Medico</class>
+        <class>ucab.dsw.entidades.Paciente</class>
+        <class>ucab.dsw.entidades.TipoCita</class>
+        <class>ucab.dsw.entidades.TipoUsuario</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mydb"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ONCOALIADO?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="P.onco+356h"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>

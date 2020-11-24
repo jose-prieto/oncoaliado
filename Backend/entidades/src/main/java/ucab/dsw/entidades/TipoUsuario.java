@@ -1,51 +1,50 @@
 package ucab.dsw.entidades;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table( name = "tipousuario" )
-public class TipoUsuario extends EntidadBase
-{
+@Table(name = "TIPO_USUARIO", schema = "ONCOALIADO")
+public class TipoUsuario extends EntidadBase{
 
-    @Column( name = "descripcion", nullable = false )
-    private String _descripcion;
+    //Atributos
+    @Column(name = "tipo", nullable = false)
+    private Object tipo;
 
-    @OneToMany( mappedBy = "_tipousuario")
-    private List<Usuario> _usuarios;
+    @Column(name = "descripcion", nullable = false, length = 50)
+    private String descripcion;
 
-    public String get_descripcion()
-    {
-        return _descripcion;
+    //Relacion
+    @OneToMany(mappedBy = "tipoUsuario")
+    List<Usuario> usuarios;
+
+    //Constructor
+    public TipoUsuario() {
+        super();
     }
 
-    public void set_descripcion( String _descripcion )
-    {
-        this._descripcion = _descripcion;
+    //Getters y Setters
+    public Object getTipo() {
+        return tipo;
     }
 
-    public List<Usuario> get_usuarios()
-    {
-        return _usuarios;
+    public void setTipo(Object tipo) {
+        this.tipo = tipo;
     }
 
-    public void set_usuarios( List<Usuario> _usuarios )
-    {
-        this._usuarios = _usuarios;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public TipoUsuario( long id )
-    {
-        super( id );
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public TipoUsuario( )
-    {
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
 
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
     }
 }

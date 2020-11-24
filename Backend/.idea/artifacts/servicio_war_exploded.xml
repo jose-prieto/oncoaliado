@@ -43,9 +43,7 @@
           <element id="archive" name="excepciones-1.0-SNAPSHOT.jar">
             <element id="module-output" name="excepciones" />
           </element>
-          <element id="archive" name="directorioactivo-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="directorioactivo" />
-          </element>
+          <element id="library" level="project" name="Maven: ucab.dsw:directorioactivo:1.0-SNAPSHOT" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />

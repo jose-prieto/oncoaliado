@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="entidades" />
-        <module name="directorioactivo" />
         <module name="accesodatos" />
         <module name="servicio" />
         <module name="dtos" />
@@ -16,7 +15,6 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="accesodatos" target="1.8" />
-      <module name="Backend" target="1.8" />
       <module name="directorioactivo" target="1.8" />
       <module name="dtos" target="1.8" />
       <module name="entidades" target="1.8" />
