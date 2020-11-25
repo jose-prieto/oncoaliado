@@ -14,9 +14,7 @@
           <element id="module-output" name="servicio" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="accesodatos-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="accesodatos" />
-          </element>
+          <element id="library" level="project" name="Maven: ucab.dsw:accesodatos:1.0-SNAPSHOT" />
           <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.jpa:2.6.4" />
           <element id="library" level="project" name="Maven: org.eclipse.persistence:javax.persistence:2.1.1" />
           <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.asm:2.6.4" />
@@ -37,9 +35,7 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.11" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
-          <element id="archive" name="dtos-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="dtos" />
-          </element>
+          <element id="library" level="project" name="Maven: ucab.dsw:dtos:1.0-SNAPSHOT" />
           <element id="archive" name="excepciones-1.0-SNAPSHOT.jar">
             <element id="module-output" name="excepciones" />
           </element>

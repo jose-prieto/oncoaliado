@@ -6,21 +6,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="entidades" />
-        <module name="accesodatos" />
-        <module name="servicio" />
-        <module name="dtos" />
-        <module name="excepciones" />
+        <module name="Excepciones" />
+        <module name="Servidor" />
+        <module name="DTOs" />
+        <module name="DAOs" />
+        <module name="Entidades" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="accesodatos" target="1.8" />
+      <module name="Backend" target="1.8" />
+      <module name="DAOs" target="1.8" />
       <module name="directorioactivo" target="1.8" />
-      <module name="dtos" target="1.8" />
+      <module name="DTOs" target="1.8" />
+      <module name="Entidades" target="1.8" />
       <module name="entidades" target="1.8" />
       <module name="excepciones" target="1.8" />
-      <module name="pruebaorm" target="1.8" />
+      <module name="Excepciones" target="1.8" />
       <module name="servicio" target="1.8" />
+      <module name="Servidor" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
