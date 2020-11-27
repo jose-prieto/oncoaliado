@@ -6,7 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/Backend/DAOs/DAOs.iml" filepath="$PROJECT_DIR$/Backend/DAOs/DAOs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Backend/DTOs/DTOs.iml" filepath="$PROJECT_DIR$/Backend/DTOs/DTOs.iml" />
       <module fileurl="file://$PROJECT_DIR$/Backend/Entidades/Entidades.iml" filepath="$PROJECT_DIR$/Backend/Entidades/Entidades.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/Excepciones/Excepciones.iml" filepath="$PROJECT_DIR$/Backend/Excepciones/Excepciones.iml" />
       <module fileurl="file://$PROJECT_DIR$/Backend/Oncoaliado.iml" filepath="$PROJECT_DIR$/Backend/Oncoaliado.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Backend/Servidor/Servidor.iml" filepath="$PROJECT_DIR$/Backend/Servidor/Servidor.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/oncoaliado.iml" filepath="$PROJECT_DIR$/.idea/oncoaliado.iml" />
     </modules>
   </component>

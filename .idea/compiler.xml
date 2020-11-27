@@ -6,18 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Backend" />
+        <module name="Excepciones" />
+        <module name="Servidor" />
         <module name="DTOs" />
         <module name="DAOs" />
         <module name="Entidades" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Backend" target="1.5" />
-      <module name="DAOs" target="1.5" />
-      <module name="DTOs" target="1.5" />
-      <module name="Entidades" target="1.5" />
+      <module name="Backend" target="1.8" />
+      <module name="DAOs" target="1.8" />
+      <module name="DTOs" target="1.8" />
+      <module name="Entidades" target="1.8" />
+      <module name="Excepciones" target="1.8" />
       <module name="Oncoaliado" target="1.5" />
+      <module name="Servidor" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

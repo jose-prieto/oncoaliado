@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="DireccionTest" time="0.675" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="DireccionTest" time="1.619" errors="0" skipped="0">
   <properties>
-    <property name="idea.version" value="2020.2.3"/>
+    <property name="idea.version" value="2020.2.4"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/home/jose/Downloads/jdk1.8.0_271/jre/lib/amd64"/>
     <property name="java.vm.version" value="25.271-b09"/>
@@ -26,11 +26,11 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="maven.ext.class.path" value="/snap/intellij-idea-ultimate/253/plugins/maven/lib/maven-event-listener.jar"/>
-    <property name="classworlds.conf" value="/snap/intellij-idea-ultimate/253/plugins/maven/lib/maven3/bin/m2.conf"/>
+    <property name="maven.ext.class.path" value="/snap/intellij-idea-ultimate/261/plugins/maven/lib/maven-event-listener.jar"/>
+    <property name="classworlds.conf" value="/snap/intellij-idea-ultimate/261/plugins/maven/lib/maven3/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
-    <property name="maven.conf" value="/snap/intellij-idea-ultimate/253/plugins/maven/lib/maven3/conf"/>
+    <property name="maven.conf" value="/snap/intellij-idea-ultimate/261/plugins/maven/lib/maven3/conf"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -41,11 +41,11 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="jose"/>
-    <property name="java.class.path" value="/snap/intellij-idea-ultimate/253/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar:/snap/intellij-idea-ultimate/253/plugins/maven/lib/maven3/boot/plexus-classworlds.license:/snap/intellij-idea-ultimate/253/lib/idea_rt.jar"/>
+    <property name="java.class.path" value="/snap/intellij-idea-ultimate/261/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar:/snap/intellij-idea-ultimate/261/plugins/maven/lib/maven3/boot/plexus-classworlds.license:/snap/intellij-idea-ultimate/261/lib/idea_rt.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/home/jose/Downloads/jdk1.8.0_271/jre"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2020.2.3 install"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2020.2.4 install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -55,7 +55,7 @@
     <property name="securerandom.source" value="file:/dev/./urandom"/>
     <property name="sun.boot.class.path" value="/home/jose/Downloads/jdk1.8.0_271/jre/lib/resources.jar:/home/jose/Downloads/jdk1.8.0_271/jre/lib/rt.jar:/home/jose/Downloads/jdk1.8.0_271/jre/lib/sunrsasign.jar:/home/jose/Downloads/jdk1.8.0_271/jre/lib/jsse.jar:/home/jose/Downloads/jdk1.8.0_271/jre/lib/jce.jar:/home/jose/Downloads/jdk1.8.0_271/jre/lib/charsets.jar:/home/jose/Downloads/jdk1.8.0_271/jre/lib/jfr.jar:/home/jose/Downloads/jdk1.8.0_271/jre/classes"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="/snap/intellij-idea-ultimate/253/plugins/maven/lib/maven3"/>
+    <property name="maven.home" value="/snap/intellij-idea-ultimate/261/plugins/maven/lib/maven3"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -63,138 +63,5 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="DireccionTest" name="getDireccionTest" time="0.675">
-    <error type="java.lang.ExceptionInInitializerError">java.lang.ExceptionInInitializerError
-	at controller.Direccion.getDireccion(Direccion.java:25)
-	at DireccionTest.getDireccionTest(DireccionTest.java:15)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: Exception [EclipseLink-30005] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.PersistenceUnitLoadingException
-Exception Description: An exception was thrown while searching for persistence archives with ClassLoader: sun.misc.Launcher$AppClassLoader@3d4eac69
-Internal Exception: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.EntityManagerSetupException
-Exception Description: Predeployment of PersistenceUnit [prueba] failed.
-Internal Exception: Exception [EclipseLink-7155] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.ValidationException
-Exception Description: The type [class java.lang.Object] for the attribute [tipo] on the entity class [class entidades.Evento] is not a valid type for a serialized mapping. The attribute type must implement the Serializable interface.
-	at org.eclipse.persistence.exceptions.PersistenceUnitLoadingException.exceptionSearchingForPersistenceResources(PersistenceUnitLoadingException.java:127)
-	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:115)
-	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactory(PersistenceProvider.java:188)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
-	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
-	at accesos.DaoHandler.&lt;init&gt;(DaoHandler.java:24)
-	at accesos.DaoPais.&lt;clinit&gt;(DaoPais.java:10)
-	... 31 more
-Caused by: javax.persistence.PersistenceException: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.EntityManagerSetupException
-Exception Description: Predeployment of PersistenceUnit [prueba] failed.
-Internal Exception: Exception [EclipseLink-7155] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.ValidationException
-Exception Description: The type [class java.lang.Object] for the attribute [tipo] on the entity class [class entidades.Evento] is not a valid type for a serialized mapping. The attribute type must implement the Serializable interface.
-	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.createPredeployFailedPersistenceException(EntityManagerSetupImpl.java:2035)
-	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:2026)
-	at org.eclipse.persistence.internal.jpa.deployment.JPAInitializer.callPredeploy(JPAInitializer.java:100)
-	at org.eclipse.persistence.jpa.PersistenceProvider.createEntityManagerFactoryImpl(PersistenceProvider.java:104)
-	... 36 more
-Caused by: Exception [EclipseLink-28018] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.EntityManagerSetupException
-Exception Description: Predeployment of PersistenceUnit [prueba] failed.
-Internal Exception: Exception [EclipseLink-7155] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.ValidationException
-Exception Description: The type [class java.lang.Object] for the attribute [tipo] on the entity class [class entidades.Evento] is not a valid type for a serialized mapping. The attribute type must implement the Serializable interface.
-	at org.eclipse.persistence.exceptions.EntityManagerSetupException.predeployFailed(EntityManagerSetupException.java:231)
-	... 40 more
-Caused by: Exception [EclipseLink-7155] (Eclipse Persistence Services - 2.6.4.v20160829-44060b6): org.eclipse.persistence.exceptions.ValidationException
-Exception Description: The type [class java.lang.Object] for the attribute [tipo] on the entity class [class entidades.Evento] is not a valid type for a serialized mapping. The attribute type must implement the Serializable interface.
-	at org.eclipse.persistence.exceptions.ValidationException.invalidTypeForSerializedAttribute(ValidationException.java:1142)
-	at org.eclipse.persistence.internal.jpa.metadata.converters.SerializedMetadata.process(SerializedMetadata.java:98)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.processSerialized(MappingAccessor.java:2001)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.processMappingConverter(MappingAccessor.java:1828)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.MappingAccessor.processMappingValueConverter(MappingAccessor.java:1849)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.mappings.BasicAccessor.process(BasicAccessor.java:419)
-	at org.eclipse.persistence.internal.jpa.metadata.MetadataDescriptor.processMappingAccessors(MetadataDescriptor.java:1544)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.classes.ClassAccessor.processMappingAccessors(ClassAccessor.java:1648)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.classes.EntityAccessor.processMappingAccessors(EntityAccessor.java:1240)
-	at org.eclipse.persistence.internal.jpa.metadata.accessors.classes.EntityAccessor.process(EntityAccessor.java:699)
-	at org.eclipse.persistence.internal.jpa.metadata.MetadataProject.processStage2(MetadataProject.java:1808)
-	at org.eclipse.persistence.internal.jpa.metadata.MetadataProcessor.processORMMetadata(MetadataProcessor.java:573)
-	at org.eclipse.persistence.internal.jpa.deployment.PersistenceUnitProcessor.processORMetadata(PersistenceUnitProcessor.java:607)
-	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.predeploy(EntityManagerSetupImpl.java:1948)
-	... 38 more
-</error>
-    <system-out>[EL Fine]: server: 2020-11-24 22:41:11.62--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2020-11-24 22:41:11.772--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.EntidadBase] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.794--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.EspecialidadMedico] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.805--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field citas] is being defaulted to: class entidades.Cita.
-[EL Config]: metadata: 2020-11-24 22:41:11.808--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field medico] is being defaulted to: class entidades.Medico.
-[EL Config]: metadata: 2020-11-24 22:41:11.808--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field citasDiagnostico] is being defaulted to: class entidades.Cita.
-[EL Config]: metadata: 2020-11-24 22:41:11.809--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field especialidad] is being defaulted to: class entidades.Especialidad.
-[EL Config]: metadata: 2020-11-24 22:41:11.809--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Estado] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.81--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field eventos] is being defaulted to: class entidades.Evento.
-[EL Config]: metadata: 2020-11-24 22:41:11.81--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field usuarios] is being defaulted to: class entidades.Usuario.
-[EL Config]: metadata: 2020-11-24 22:41:11.811--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field pais] is being defaulted to: class entidades.Pais.
-[EL Config]: metadata: 2020-11-24 22:41:11.811--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.TipoCita] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.812--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field citas] is being defaulted to: class entidades.Cita.
-[EL Config]: metadata: 2020-11-24 22:41:11.812--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field precios] is being defaulted to: class entidades.HistPrecio.
-[EL Config]: metadata: 2020-11-24 22:41:11.813--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Cita] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.814--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field factura] is being defaulted to: class entidades.Factura.
-[EL Config]: metadata: 2020-11-24 22:41:11.814--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field paciente] is being defaulted to: class entidades.Paciente.
-[EL Config]: metadata: 2020-11-24 22:41:11.814--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field tipoCita] is being defaulted to: class entidades.TipoCita.
-[EL Config]: metadata: 2020-11-24 22:41:11.815--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field medico] is being defaulted to: class entidades.EspecialidadMedico.
-[EL Config]: metadata: 2020-11-24 22:41:11.815--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field medicoDiagnostico] is being defaulted to: class entidades.EspecialidadMedico.
-[EL Config]: metadata: 2020-11-24 22:41:11.816--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.HistPrecio] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.817--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field tipoCita] is being defaulted to: class entidades.TipoCita.
-[EL Config]: metadata: 2020-11-24 22:41:11.817--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Evento] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.818--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field estado] is being defaulted to: class entidades.Estado.
-[EL Config]: metadata: 2020-11-24 22:41:11.819--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.HistCambio] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.82--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field usuario] is being defaulted to: class entidades.Usuario.
-[EL Config]: metadata: 2020-11-24 22:41:11.82--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Usuario] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.821--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field estado] is being defaulted to: class entidades.Estado.
-[EL Config]: metadata: 2020-11-24 22:41:11.821--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field cambios] is being defaulted to: class entidades.HistCambio.
-[EL Config]: metadata: 2020-11-24 22:41:11.822--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field paciente] is being defaulted to: class entidades.Paciente.
-[EL Config]: metadata: 2020-11-24 22:41:11.823--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field medico] is being defaulted to: class entidades.Medico.
-[EL Config]: metadata: 2020-11-24 22:41:11.823--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field tipoUsuario] is being defaulted to: class entidades.TipoUsuario.
-[EL Config]: metadata: 2020-11-24 22:41:11.824--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Medico] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.824--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field especialidades] is being defaulted to: class entidades.EspecialidadMedico.
-[EL Config]: metadata: 2020-11-24 22:41:11.825--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field usuario] is being defaulted to: class entidades.Usuario.
-[EL Config]: metadata: 2020-11-24 22:41:11.825--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.TipoUsuario] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.826--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field usuarios] is being defaulted to: class entidades.Usuario.
-[EL Config]: metadata: 2020-11-24 22:41:11.826--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Especialidad] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.827--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field medico] is being defaulted to: class entidades.EspecialidadMedico.
-[EL Config]: metadata: 2020-11-24 22:41:11.828--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Factura] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.828--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field citas] is being defaulted to: class entidades.Cita.
-[EL Config]: metadata: 2020-11-24 22:41:11.829--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Pais] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.829--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field estados] is being defaulted to: class entidades.Estado.
-[EL Config]: metadata: 2020-11-24 22:41:11.83--ServerSession(322836221)--Thread(Thread[main,5,main])--The access type for the persistent class [class entidades.Paciente] is set to [FIELD].
-[EL Config]: metadata: 2020-11-24 22:41:11.83--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field citas] is being defaulted to: class entidades.Cita.
-[EL Config]: metadata: 2020-11-24 22:41:11.831--ServerSession(322836221)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field usuario] is being defaulted to: class entidades.Usuario.
-[EL Config]: metadata: 2020-11-24 22:41:11.838--ServerSession(322836221)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.EspecialidadMedico] is being defaulted to: EspecialidadMedico.
-[EL Config]: metadata: 2020-11-24 22:41:11.848--ServerSession(322836221)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Estado] is being defaulted to: Estado.
-[EL Config]: metadata: 2020-11-24 22:41:11.849--ServerSession(322836221)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.TipoCita] is being defaulted to: TipoCita.
-[EL Config]: metadata: 2020-11-24 22:41:11.85--ServerSession(322836221)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Cita] is being defaulted to: Cita.
-[EL Config]: metadata: 2020-11-24 22:41:11.851--ServerSession(322836221)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.HistPrecio] is being defaulted to: HistPrecio.
-[EL Config]: metadata: 2020-11-24 22:41:11.852--ServerSession(322836221)--Thread(Thread[main,5,main])--The alias name for the entity class [class entidades.Evento] is being defaulted to: Evento.
-</system-out>
-  </testcase>
+  <testcase classname="DireccionTest" name="getDireccionTest" time="1.619"/>
 </testsuite>
