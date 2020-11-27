@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contactos.component.css']
 })
 export class ContactosComponent implements OnInit {
-
+  Imagenes:String[]=["/assets/images/imagencontacto.png","","","simple"]
   constructor() { }
 
   ngOnInit(): void {

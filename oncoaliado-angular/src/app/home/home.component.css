@@ -217,47 +217,90 @@
 .palabras img{
     width: 100%;
 }
-
 .menu-home{
     font-family: "Lucida Sans";
-    float: left;
     width: 100%;
-    position: relative;
     
-    background-color: blue;
+    display: flex;
+    clear: both;
+    position: relative;
+    flex-direction: column;
+}
+
+.menu-home h2{
     text-align: center;
-
-
+    margin-bottom: 5%;
+    font-size: 200%;
 }
 
-.nosotros-botones{
-    float: left;
-    position: relative;
+.home-botones{
+    
     width: 100%;
-    background-color: brown;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+    
 }
 
-.nosotros-botones img{
-    background-color: black;
-    width: 33%;
+.home-botones img{  
+    background-color: #00a880;
+    transition: transform .2s;
+    width: 20%;
+
 }
 
-.mensaje {
-    float: left;
-    background-color: green;
+.home-botones img:hover{ 
+    transform: scale(1.1); 
+
+
 }
 
-.nosotros-redes{
-    float: left;
-    margin-left: 35%;
-    position: relative;
-    width: 30%;
-    background-color: black;
+
+.home-texto{
+    display: flex;
+    flex-direction: column;
+    background-color: #00a880;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 5%;
+    color: #ffffff;
+    
 }
 
-.nosotros-redes img{
-    width: 25%;
+
+.home-redes{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    
+    
 }
+.home-redes img{
+    transition: transform .2s;
+    
+    width: 5%;
+   
+}
+
+.home-redes img:hover{
+    transform: scale(1.1); 
+   
+}
+
+.im-objetivo{
+    order: 1;
+}
+
+.im-mision
+{
+    order: 2;
+}
+
+.im-alcance{
+    order: 2;
+}
+
 
 
 

@@ -1,0 +1,40 @@
+.contenido{
+    z-index: 4;
+    position: relative;
+    clear: both;
+    
+}
+
+.fondo{
+    z-index: 4;
+    width: 100%;
+}
+.fondo img{
+    z-index: 4;  
+    width: 100%;
+}
+
+
+
+.sli{
+    top: 70px;
+    left: 0%;
+    width: 100%;
+    position: absolute;
+}
+
+.botones{
+    float: left;
+    position: absolute;
+    margin-left: 41%;
+    width: 18%;
+   
+    z-index: 4;
+    top: 40%;
+}
+.botones img{
+    z-index: 4;
+    display: inline-block;
+    margin-left: 20%;
+    width: 7%;
+}

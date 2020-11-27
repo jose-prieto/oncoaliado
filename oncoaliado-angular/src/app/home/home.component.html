@@ -1,63 +1,57 @@
+
+<app-slider [imagenes]="Imagenes" ></app-slider>
+
 <div class="contenedor">
-    <div class="head">
-
-        <!-- <img src="/assets/images/muetra.png" alt=""> -->
-
-        
-        <img src="/assets/images/muetra.png" alt="" [@visibility2]="v1" class="i1">
- 
-
-        
-        <img src="/assets/images/muetra.png" alt="fondo" class="fondo" [@visibility2]="v2" >
-        <img src="/assets/images/muetra.png" alt="fondo" class="fondo" [@visibility2]="v3" >
-
-        <div class="botones">
-            <img src={{b1}} alt="" (click)="sliderEvento(1)">
-            <img src={{b2}} alt="" (click)="sliderEvento(2)">
-            <img src={{b3}} alt="" (click)="sliderEvento(3)">
-
-        </div>
-
-        
-        <img src="/assets/images/head.png" alt="" class="fondo">
-            
-    </div>
-
-
 
 </div>
-
-
-
-    <div class="caja">
-
-    </div>
-
-
     <div class="menu-home">
         <h2>SobreNOSOTROS</h2>
 
-        <div class="nosotros-botones">
-            <img src="/assets/images/mision.png" alt="">
-        <img src="/assets/images/objetivo.png" alt="">
-        <img src="/assets/images/Alcance.png" alt="">
+        <div class="home-botones">
+            <img src="/assets/images/mision.png" alt="" (click)="NosotrosEvento(1)" class="im-mision">
+        <img src="/assets/images/objetivo.png" alt="" (click)="NosotrosEvento(2)" class="im-objetivo">
+        <img src="/assets/images/Alcance.png" alt="" (click)="NosotrosEvento(3)" class="im-alcance">
+        </div>
+
+        <div class="home-texto mision" >
+            <p>Brindar apoyo a la población oncológica e integrar esfuerzos en la Prevención del Cáncer, fomentando alianzas con Empresas, Instituciones Públicas o Privadas, que permitan, mejorar la calidad de vida de los pacientes oncológicos y disminuir los factores de riesgo de adquirir la enfermedad.</p>
+            
+        </div>
+        <div class="home-texto objetivo" >
+            <p>Oncoaliado atiende a la población infantil, juvenil, adulta y de la 3era edad con especial atención a las comunidades indígenas y rurales del Estado Anzoátegui.</p>
+            
+        </div>
+        <div class="home-texto alcance" >
+            <p><b>SALUD:</b> 
+                Apoyar en la Salud integral de los pacientes oncológicos, focalizándonos en la medicina preventiva y Diagnóstico temprano del cáncer, y tratamientos oncológicos ambulatorios.
+            </p>
+            <p>  
+               <b> EDUCACIÓN:</b>
+                Establecer programas de orientación y educación a la comunidad sobre la importancia de la prevención y diagnóstico precoz del cáncer para superar esta enfermedad. Apoyar en la formación de los profesionales de la medicina y carreras afines que intervienen en la salud integral de un paciente oncológico y motivar a los estudiantes para que direccionen sus carreras en especialidades de oncología.
+            </p>  
+            <p>  
+               <b> APOYO COMUNITARIO:</b>
+                acompañar al paciente oncológico y sus familiares en el tránsito de esta enfermedad, brindándoles apoyo emocional, Calidad de Vida y Bienestar.</p>
+            
         </div>
 
 
-        <div class="mensaje" >
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae reprehenderit harum soluta modi minus dolore sint magnam, laudantium ut delectus magni quisquam nemo corporis libero ipsam sit iste blanditiis qui?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, sequi delectus? Fugit ipsum et quasi ab dolorum hic, aliquid quod sint, soluta, ratione officia aspernatur magni. Obcaecati laboriosam veritatis quis!</p>
-        </div>
-
-
-        <div class="nosotros-redes" >
+        <div class="home-redes" >
             <img src="/assets/images/facebook.png" alt="">
             <img src="/assets/images/whatsaap.png" alt="">
             <img src="/assets/images/twitter.png" alt="">
             <img src="/assets/images/instagram.png" alt="">
         </div>
+
+
+
     </div>
 
+
+
+
+
+    
 
     <div class="medicos">
         <img src="/assets/images/medicos.jpg" alt="">

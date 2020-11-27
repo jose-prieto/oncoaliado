@@ -1,48 +1,54 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { visibility2 } from '../animations/app.animations';
-
 @Component({
   animations: [
     
     visibility2()
   ],
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-slider',
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  Imagenes:String[]=[
-    "/assets/images/muetra.png",
-    "/assets/images/muetra.png",
-    "/assets/images/muetra.png",
-    "multiple"
-  ]
-
+export class SliderComponent implements OnInit {
+  @Input()imagenes:String[];
   On="/assets/images/puntoverde.png";
   Off="/assets/images/puntoblanco.png"
 
   v1="shown"
   v2="hidden"
-  v3="shown"
+  v3="hidden"
+  botones="shown";
 
   b1="/assets/images/puntoverde.png";
   b2="/assets/images/puntoblanco.png";
   b3="/assets/images/puntoblanco.png";
 
+  i1:String;
+  i2:String;
+  i3:String;
+
   constructor() { }
 
   ngOnInit(): void {
-    
-    document.body.classList.add('bg-img');
-  }
+    console.log(this.imagenes)
+   if(this.imagenes[3]=="multiple"){
+    this.i1=this.imagenes[0];
+    this.i2=this.imagenes[1];
+    this.i3=this.imagenes[2];
+    console.log(this.imagenes[0])
 
-  ValidarTamaño():boolean{
-    return true
+   }
+   else{
+    this.i1=this.imagenes[0];
+    this.i2=this.imagenes[0];
+    this.i3=this.imagenes[0];
+    this.botones="hidden"
+   }
   }
 
   sliderEvento(numero:number){
-    console.log("hola")
+    
+    
     if(numero==1){
       this.v1="shown"
       this.v2="hidden"
@@ -73,18 +79,6 @@ export class HomeComponent implements OnInit {
     }
 
 
-  }
-
-  NosotrosEvento(id:Number){
-    if (id==1){
-      
-    }
-    else if(id==2){
-      
-    }
-    else{
-      
-    }
   }
 
 }

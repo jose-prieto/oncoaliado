@@ -11,11 +11,18 @@ import { EventoService } from "../services/evento.service";
 })
 export class EventosComponent implements OnInit {
   eventos:Evento[];
+  Imagenes:String[]=[
+    "/assets/images/muestrae.jpg",
+    "/assets/images/muestrae.jpg",
+    "/assets/images/muestrae.jpg",
+    "multiple"
+
+  ]
   constructor(private eventoService:EventoService) { }
 
   ngOnInit(): void {
     this.eventoService.getEventos().subscribe(E=>this.eventos=E)
-
+    document.body.classList.add('bg-img');
   }
 
 }

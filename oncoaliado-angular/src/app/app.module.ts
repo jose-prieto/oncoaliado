@@ -46,6 +46,7 @@ import { ContactosComponent } from './contactos/contactos.component';
 import { ContactoHeaderComponent } from './contacto-header/contacto-header.component';
 import { ContactoFormularioComponent } from './contacto-formulario/contacto-formulario.component';
 import { ContactoDonacionesComponent } from './contacto-donaciones/contacto-donaciones.component';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ContactoDonacionesComponent } from './contacto-donaciones/contacto-dona
     ContactosComponent,
     ContactoHeaderComponent,
     ContactoFormularioComponent,
-    ContactoDonacionesComponent
+    ContactoDonacionesComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
