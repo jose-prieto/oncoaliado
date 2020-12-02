@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,9 +17,11 @@ public class TipoCita extends EntidadBase{
 
     //Relacion
     @OneToMany(mappedBy = "tipoCita")
+    @JsonbTransient
     List<HistPrecio> precios;
 
     @OneToMany(mappedBy = "tipoCita")
+    @JsonbTransient
     List<Cita> citas;
 
     //Constructor

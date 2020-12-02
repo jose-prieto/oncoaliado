@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -19,8 +20,8 @@ public class HistPrecio extends EntidadBase{
     private BigDecimal precio;
 
     //Relacion
-    @ManyToOne
-    @JoinColumn(name = "id_tipo_cita")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tipo_cita", referencedColumnName = "id")
     private TipoCita tipoCita;
 
     //Constructor

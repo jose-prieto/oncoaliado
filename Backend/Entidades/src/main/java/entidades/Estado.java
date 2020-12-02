@@ -1,10 +1,11 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "estado", schema = "ONCOALIADO")
+@Table(name = "ESTADO", schema = "ONCOALIADO")
 public class Estado extends EntidadBase {
 
     //Atributos
@@ -12,13 +13,15 @@ public class Estado extends EntidadBase {
     private String nombre;
 
     //Relaciones
-    @ManyToOne
-    @JoinColumn(name = "id_pais")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_pais", referencedColumnName = "id")
     private Pais pais;
 
+    @JsonbTransient
     @OneToMany(mappedBy = "estado")
     List<Evento> eventos;
 
+    @JsonbTransient
     @OneToMany(mappedBy = "estado")
     List<Usuario> usuarios;
 

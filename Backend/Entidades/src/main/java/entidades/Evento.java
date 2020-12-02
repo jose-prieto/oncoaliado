@@ -1,11 +1,12 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "evento", schema = "ONCOALIADO")
+@Table(name = "EVENTO", schema = "ONCOALIADO")
 public class Evento extends EntidadBase{
 
     //Atributos
@@ -22,14 +23,14 @@ public class Evento extends EntidadBase{
     private String tipo;
 
     @Column(name = "foto", nullable = true)
-    private byte[] foto;
+    private String foto;
 
     @Column(name = "fecha", nullable = false)
     private Date fecha;
 
     //relacion
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_estado", referencedColumnName = "id")
     private Estado estado;
 
     //Constructor
@@ -70,11 +71,11 @@ public class Evento extends EntidadBase{
         this.tipo = tipo;
     }
 
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 

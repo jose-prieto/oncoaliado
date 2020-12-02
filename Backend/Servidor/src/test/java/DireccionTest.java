@@ -2,10 +2,8 @@ import controller.Direccion;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import entidades.Pais;
 
 import javax.json.JsonArray;
-import java.util.List;
 
 
 public class DireccionTest {

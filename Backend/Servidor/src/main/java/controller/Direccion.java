@@ -31,7 +31,7 @@ public class Direccion extends AplicacionBase {
             DaoPais dao = new DaoPais();
             paises = dao.findAll(Pais.class);
         } catch (Exception ex) {
-            String problema = ex.getMessage();
+            System.out.println(ex.getMessage());
         }
         for(Pais obj: paises) {
             builder.add(Json.createObjectBuilder().add("cod_pais",obj.getId())

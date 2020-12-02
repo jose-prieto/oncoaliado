@@ -1,12 +1,13 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
 @Entity
-@Table(name = "usuario", schema = "ONCOALIADO")
+@Table(name = "USUARIO", schema = "ONCOALIADO")
 public class Usuario extends EntidadBase{
 
     //Atributos
@@ -35,27 +36,30 @@ public class Usuario extends EntidadBase{
     private String genero;
 
     @Column(name = "foto", nullable = true)
-    private byte[] foto;
+    private String foto;
 
     @Column(name = "direccion", nullable = false, length = 50)
     private String direccion;
 
     //Relaciones
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_estado", referencedColumnName = "id")
     private Estado estado;
 
-    @ManyToOne
-    @JoinColumn(name = "id_tipo_usuario")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tipo_usuario", referencedColumnName = "id")
     private TipoUsuario tipoUsuario;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonbTransient
     List<HistCambio> cambios;
 
     @OneToOne(mappedBy = "usuario")
+    @JsonbTransient
     Paciente paciente;
 
     @OneToOne(mappedBy = "usuario")
+    @JsonbTransient
     Medico medico;
 
     //Constructor
@@ -128,11 +132,11 @@ public class Usuario extends EntidadBase{
         this.genero = genero;
     }
 
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
 

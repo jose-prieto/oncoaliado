@@ -1,0 +1,71 @@
+export class Direccion{
+    descripcion:String;
+    Estado:String;
+    Pais:String
+}
+
+
+export class Evento{
+    id:number;
+    titulo:String;
+    direccion:Direccion;
+    tipo:String;
+    estatus:String;
+    foto:string;
+    fecha:string;
+}
+
+export class Usuario{
+    correo:String;
+    nombre:String;
+    nombre2:String;
+    apellido:String;
+    apellido2:String;
+    fechaNacimiento:String;
+    genero:String;
+    foto:String;
+    direccion:Direccion;
+}
+
+export class Especialidad{
+    nombre:String;
+    descripcion:String;
+
+
+
+}
+
+export class Medico extends Usuario{
+    especialidades:Especialidad[];
+
+}
+
+export class TipoCita{
+    nombre:String;
+    descripcion:String;
+    precio:String
+
+}
+
+export class Cita{
+    id:number;
+    estatus:String;
+    fecha:string;
+    descripcion:string;
+    tipoCita:TipoCita;
+    medicoInicial:Medico;
+    medicoTDiagnostico:Medico;
+}
+
+export class Pago{
+    id:Number;
+    fecha:String;
+    comprobante:String;
+    banco:String;
+    estatus:String;
+    Total:number;
+    correoCliente:String;
+    cita:Cita;
+
+
+}

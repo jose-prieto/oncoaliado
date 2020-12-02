@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,11 +16,12 @@ public class Medico extends EntidadBase{
     private String descripcion;
 
     //Relacion
-    @OneToOne
-    @JoinColumn(name = "id_usuario")
+    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
     @OneToMany(mappedBy = "medico")
+    @JsonbTransient
     List<EspecialidadMedico> especialidades;
 
     //Constructor

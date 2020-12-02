@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -23,6 +24,7 @@ public class Factura extends EntidadBase{
     private BigDecimal total;
 
     //Relacion
+    @JsonbTransient
     @OneToMany(mappedBy = "factura")
     List<Cita> citas;
 

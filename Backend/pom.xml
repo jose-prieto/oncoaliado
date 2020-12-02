@@ -22,6 +22,7 @@
         <module>Entidades</module>
         <module>Excepciones</module>
         <module>Servidor</module>
+        <module>Logica</module>
     </modules>
 
     <dependencies>

@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class TipoUsuario extends EntidadBase{
 
     //Relacion
     @OneToMany(mappedBy = "tipoUsuario")
+    @JsonbTransient
     List<Usuario> usuarios;
 
     //Constructor

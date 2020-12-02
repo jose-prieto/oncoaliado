@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -15,8 +16,8 @@ public class HistCambio extends EntidadBase{
     private Date fecha;
 
     //Relacion
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 
     //Constructor

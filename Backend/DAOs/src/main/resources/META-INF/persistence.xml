@@ -1,7 +1,7 @@
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="prueba" transaction-type="JTA">
+    <persistence-unit name="prueba" transaction-type="JTA"><!---->
 
         <jta-data-source>jdbc/oncoaliado</jta-data-source>
 
@@ -21,18 +21,14 @@
         <class>entidades.Usuario</class>
 
         <properties>
-            <property name="eclipselink.ddl-generation" value="create-tables"/>
-            <property name="eclipselink.logging.level" value="FINEST"/>
-        </properties>
-
-        <!--<properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ONCOALIADO?serverTimezone=UTC"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="P.onco+356h"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-            <property name="eclipselink.logging.level" value="FINE"/>
-        </properties>-->
+            <property name="eclipselink.ddl-generation" value="create-tables"/>
+            <property name="eclipselink.logging.level" value="FINEST"/>
+        </properties>
     </persistence-unit>
 
 </persistence>

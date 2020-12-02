@@ -11,6 +11,7 @@
         <module name="DTOs" />
         <module name="DAOs" />
         <module name="Entidades" />
+        <module name="Logica" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +23,7 @@
       <module name="entidades" target="1.8" />
       <module name="excepciones" target="1.8" />
       <module name="Excepciones" target="1.8" />
+      <module name="Logica" target="1.8" />
       <module name="servicio" target="1.8" />
       <module name="Servidor" target="1.8" />
     </bytecodeTargetLevel>

@@ -1,5 +1,6 @@
 package entidades;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -15,24 +16,24 @@ public class Cita extends EntidadBase{
     private String descripcion;
 
     //Relaciones
-    @ManyToOne
-    @JoinColumn(name = "id_medico_especialidad")
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_medico_especialidad", referencedColumnName = "id")
     private EspecialidadMedico medico;
 
-    @ManyToOne
-    @JoinColumn(name = "id_medico_diagnostico")
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_medico_diagnostico", referencedColumnName = "id")
     private EspecialidadMedico medicoDiagnostico;
 
-    @ManyToOne
-    @JoinColumn(name = "id_paciente")
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_paciente", referencedColumnName = "id")
     private Paciente paciente;
 
-    @ManyToOne
-    @JoinColumn(name = "id_factura")
+    @ManyToOne(optional = true, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_factura", referencedColumnName = "id")
     private Factura factura;
 
-    @ManyToOne
-    @JoinColumn(name = "id_tipo_cita")
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_tipo_cita", referencedColumnName = "id")
     private TipoCita tipoCita;
 
     //Constructor
