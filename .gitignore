@@ -1,1 +1,7 @@
 /target/
+Backend/DAOs/DAOs.iml
+Backend/DTOs/DTOs.iml
+Backend/Entidades/Entidades.iml
+Backend/Excepciones/Excepciones.iml
+Backend/Logica/Logica.iml
+Backend/Servidor/Servidor.iml
