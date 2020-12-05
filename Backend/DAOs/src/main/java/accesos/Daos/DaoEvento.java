@@ -1,13 +1,13 @@
-package accesos;
+package accesos.Daos;
 
 import javax.persistence.EntityManager;
 
+import accesos.Dao;
+import accesos.DaoHandler;
 import entidades.Evento;
 
-public class DaoEvento extends Dao<Evento>
-{
+public class DaoEvento extends Dao<Evento> {
 
-    private EntityManager _em;
     static DaoHandler _handler = new DaoHandler();
 
     public DaoEvento() {

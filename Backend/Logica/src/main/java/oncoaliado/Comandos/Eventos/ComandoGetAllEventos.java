@@ -1,6 +1,6 @@
 package oncoaliado.Comandos.Eventos;
 
-import accesos.DaoEvento;
+import accesos.Daos.DaoEvento;
 import accesos.DaoFactory;
 import entidades.Evento;
 import oncoaliado.Comandos.ComandoBase;
@@ -13,7 +13,7 @@ public class ComandoGetAllEventos extends ComandoBase {
 
     @Override
     public void execute() {
-        DaoEvento dao = DaoFactory.DaoEventoInstance();
+        DaoEvento dao = DaoFactory.DaoEventoInstancia();
         this.eventos = dao.findAll(Evento.class);
     }
 

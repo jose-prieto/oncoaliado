@@ -3,6 +3,7 @@ package entidades;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "CITA", schema = "ONCOALIADO")
@@ -10,29 +11,29 @@ public class Cita extends EntidadBase{
 
     //Atributos
     @Column(name = "fecha", nullable = false)
-    private Date fecha;
+    private GregorianCalendar fecha;
 
     @Column(name = "descripcion", nullable = true, length = 200)
     private String descripcion;
 
     //Relaciones
-    @ManyToOne(optional = false, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medico_especialidad", referencedColumnName = "id")
     private EspecialidadMedico medico;
 
-    @ManyToOne(optional = true, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medico_diagnostico", referencedColumnName = "id")
     private EspecialidadMedico medicoDiagnostico;
 
-    @ManyToOne(optional = true, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_paciente", referencedColumnName = "id")
     private Paciente paciente;
 
-    @ManyToOne(optional = true, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_factura", referencedColumnName = "id")
     private Factura factura;
 
-    @ManyToOne(optional = false, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipo_cita", referencedColumnName = "id")
     private TipoCita tipoCita;
 
@@ -42,11 +43,11 @@ public class Cita extends EntidadBase{
     }
 
     //Getters y Setters
-    public Date getFecha() {
+    public GregorianCalendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(GregorianCalendar fecha) {
         this.fecha = fecha;
     }
 

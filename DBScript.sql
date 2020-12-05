@@ -33,7 +33,7 @@ CREATE TABLE USUARIO (
     apellido2 VARCHAR(50),
     fechaNac DATE NOT NULL,
     genero ENUM ('fem','mas') NOT NULL,
-    foto LONGBLOB,
+    foto VARCHAR(50),
     direccion VARCHAR(50) NOT NULL,
     id_estado INT NOT NULL,
     id_tipo_usuario INT NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE EVENTO (
     contenido VARCHAR(10000),
     direccion VARCHAR (200),
     tipo ENUM ('salud','educativo','otro') NOT NULL,
-    foto LONGBLOB,
+    foto VARCHAR(50),
     fecha DATE NOT NULL,
     id_estado INT NOT NULL,
     CONSTRAINT fk_lugar FOREIGN KEY (id_estado) REFERENCES ESTADO (id)

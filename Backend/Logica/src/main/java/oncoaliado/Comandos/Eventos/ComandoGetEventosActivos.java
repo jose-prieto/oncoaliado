@@ -1,12 +1,8 @@
 package oncoaliado.Comandos.Eventos;
 
-import accesos.DaoEstado;
-import accesos.DaoEvento;
+import accesos.Daos.DaoEvento;
 import accesos.DaoFactory;
-import accesos.DaoPais;
-import entidades.Estado;
 import entidades.Evento;
-import entidades.FactoryEntidades;
 import oncoaliado.Comandos.ComandoBase;
 
 import java.util.List;
@@ -29,7 +25,7 @@ public class ComandoGetEventosActivos extends ComandoBase {
 
     @Override
     public void execute() {
-        DaoEvento dao = DaoFactory.DaoEventoInstance();
+        DaoEvento dao = DaoFactory.DaoEventoInstancia();
         this.eventos = dao.findAll(Evento.class);
         borrarInactivos();
     }

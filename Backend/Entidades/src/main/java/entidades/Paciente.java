@@ -13,7 +13,7 @@ public class Paciente extends EntidadBase {
     private int cedula;
 
     //Relaciones
-    @OneToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
 

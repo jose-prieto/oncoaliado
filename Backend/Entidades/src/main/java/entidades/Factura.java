@@ -4,6 +4,7 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @Entity
@@ -12,7 +13,7 @@ public class Factura extends EntidadBase{
 
     //Atributos
     @Column(name = "fecha", nullable = false)
-    private Date fecha;
+    private GregorianCalendar fecha;
 
     @Column(name = "comprobante", nullable = false)
     private int comprobante;
@@ -34,11 +35,11 @@ public class Factura extends EntidadBase{
     }
 
     //Getters y Setters
-    public Date getFecha() {
+    public GregorianCalendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(GregorianCalendar fecha) {
         this.fecha = fecha;
     }
 

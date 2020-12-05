@@ -13,7 +13,7 @@ public class EntidadBase implements Serializable {
 
     //Atributos
     @Id
-    @Column( name = "Id" )
+    @Column( name = "id" )
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private long id;
 
@@ -22,6 +22,10 @@ public class EntidadBase implements Serializable {
 
     //Constructor
     public EntidadBase() {
+    }
+
+    public EntidadBase(long id) {
+        this.id = id;
     }
 
     //Getters y Setters

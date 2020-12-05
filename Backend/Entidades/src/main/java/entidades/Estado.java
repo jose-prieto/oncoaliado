@@ -13,7 +13,7 @@ public class Estado extends EntidadBase {
     private String nombre;
 
     //Relaciones
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "id_pais", referencedColumnName = "id")
     private Pais pais;
 
@@ -28,6 +28,10 @@ public class Estado extends EntidadBase {
     //Constructor
     public Estado() {
         super();
+    }
+
+    public Estado(long id) {
+        super(id);
     }
 
     //Getters y Setters

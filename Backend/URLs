@@ -1,0 +1,6 @@
+Eventos:
+	http://localhost:8080/Servidor/api/eventos/Eventos
+	http://localhost:8080/Servidor/api/eventos/EventosActivos
+	http://localhost:8080/Servidor/api/eventos/Evento
+Medicos:
+	http://localhost:8080/Servidor/api/medicos/medicos

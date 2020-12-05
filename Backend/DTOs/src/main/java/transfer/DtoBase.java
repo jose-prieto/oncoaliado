@@ -3,16 +3,14 @@ package transfer;
 import excepciones.exceptions;
 
 public class DtoBase {
+
     private long _id;
 
-
-    public DtoBase( long id ) throws Exception
-    {
+    public DtoBase( long id ) throws Exception {
         setId( id );
     }
 
-    public DtoBase()
-    {
+    public DtoBase() {
     }
 
     public long getId()
@@ -20,8 +18,7 @@ public class DtoBase {
         return _id;
     }
 
-    public void setId( long id ) throws exceptions
-    {
+    public void setId( long id ) throws exceptions {
         if ( id >= 0 )
         {
             _id = id;

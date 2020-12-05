@@ -4,6 +4,7 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "HIST_PRECIO", schema = "ONCOALIADO")
@@ -11,16 +12,16 @@ public class HistPrecio extends EntidadBase{
 
     //Atributos
     @Column(name = "fecha_inicio", nullable = false)
-    private Date fechaInicio;
+    private GregorianCalendar fechaInicio;
 
     @Column(name = "fecha_fin", nullable = true)
-    private Date fechaFin;
+    private GregorianCalendar fechaFin;
 
     @Column(name = "precio", nullable = true, precision = 2)
     private BigDecimal precio;
 
     //Relacion
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipo_cita", referencedColumnName = "id")
     private TipoCita tipoCita;
 
@@ -31,19 +32,19 @@ public class HistPrecio extends EntidadBase{
     }
 
     //Getters y Setters
-    public Date getFechaInicio() {
+    public GregorianCalendar getFechaInicio() {
         return fechaInicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
+    public void setFechaInicio(GregorianCalendar fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
+    public GregorianCalendar getFechaFin() {
         return fechaFin;
     }
 
-    public void setFechaFin(Date fechaFin) {
+    public void setFechaFin(GregorianCalendar fechaFin) {
         this.fechaFin = fechaFin;
     }
 

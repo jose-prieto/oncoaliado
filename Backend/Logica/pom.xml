@@ -19,7 +19,13 @@
             <artifactId>DAOs</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.transferencia</groupId>
+            <artifactId>DTOs</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
+
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

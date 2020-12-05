@@ -4,6 +4,7 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @Entity
@@ -30,7 +31,7 @@ public class Usuario extends EntidadBase{
     private String apellido2;
 
     @Column(name = "fechaNac", nullable = false)
-    private Date fechaNac;
+    private GregorianCalendar fechaNac;
 
     @Column(name = "genero", nullable = false)
     private String genero;
@@ -42,11 +43,11 @@ public class Usuario extends EntidadBase{
     private String direccion;
 
     //Relaciones
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_estado", referencedColumnName = "id")
     private Estado estado;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipo_usuario", referencedColumnName = "id")
     private TipoUsuario tipoUsuario;
 
@@ -116,11 +117,11 @@ public class Usuario extends EntidadBase{
         this.apellido2 = apellido2;
     }
 
-    public Date getFechaNac() {
+    public GregorianCalendar getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(GregorianCalendar fechaNac) {
         this.fechaNac = fechaNac;
     }
 

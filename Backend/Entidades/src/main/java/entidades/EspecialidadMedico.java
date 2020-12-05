@@ -9,11 +9,11 @@ import java.util.List;
 public class EspecialidadMedico extends EntidadBase{
 
     //Relaciones
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medico", referencedColumnName = "id")
     private Medico medico;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_especialidad", referencedColumnName = "id")
     private Especialidad especialidad;
 

@@ -1,9 +1,7 @@
 package entidades;
 
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-import java.sql.Date;
-import java.util.Arrays;
+import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "EVENTO", schema = "ONCOALIADO")
@@ -13,23 +11,23 @@ public class Evento extends EntidadBase{
     @Column(name = "titulo", nullable = false, length = 200)
     private String titulo;
 
-    @Column(name = "contenido", nullable = true, length = 10000)
+    @Column(name = "contenido", length = 10000)
     private String contenido;
 
-    @Column(name = "direccion", nullable = true, length = 200)
+    @Column(name = "direccion", length = 200)
     private String direccion;
 
     @Column(name = "tipo", nullable = false)
     private String tipo;
 
-    @Column(name = "foto", nullable = true)
+    @Column(name = "foto")
     private String foto;
 
     @Column(name = "fecha", nullable = false)
-    private Date fecha;
+    private GregorianCalendar fecha;
 
     //relacion
-    @ManyToOne(optional = false, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "id_estado", referencedColumnName = "id")
     private Estado estado;
 
@@ -79,11 +77,11 @@ public class Evento extends EntidadBase{
         this.foto = foto;
     }
 
-    public Date getFecha() {
+    public GregorianCalendar getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(GregorianCalendar fecha) {
         this.fecha = fecha;
     }
 
