@@ -1,3 +1,4 @@
+controller/LoginApi.class
 controller/EventoApi.class
+controller/MedicoApi.class
 controller/AplicacionBase.class
-controller/Direccion.class

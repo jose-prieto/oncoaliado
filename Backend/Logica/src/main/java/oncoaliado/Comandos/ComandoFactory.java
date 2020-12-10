@@ -1,8 +1,6 @@
 package oncoaliado.Comandos;
 
-import oncoaliado.Comandos.Eventos.ComandoGetAllEventos;
-import oncoaliado.Comandos.Eventos.ComandoGetEventosActivos;
-import oncoaliado.Comandos.Eventos.ComandoPutEvento;
+import oncoaliado.Comandos.Eventos.*;
 import oncoaliado.Comandos.Medicos.ComandoGetAllMedicos;
 import transfer.DtoEvento;
 
@@ -22,6 +20,14 @@ public class ComandoFactory {
 
     public static ComandoGetAllMedicos ComandoGetAllMedicosInstance() {
         return new ComandoGetAllMedicos();
+    }
+
+    public static ComandoUpdateEvento ComandoUpdateEventoInstance(DtoEvento evento, long id) {
+        return new ComandoUpdateEvento(evento, id);
+    }
+
+    public static ComandoLogin ComandoLoginInstance(String pass, String user) {
+        return new ComandoLogin(pass, user);
     }
 
 }

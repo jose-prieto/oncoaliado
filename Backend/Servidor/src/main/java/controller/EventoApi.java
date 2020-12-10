@@ -1,9 +1,11 @@
 package controller;
 
+import accesos.Daos.DaoEvento;
 import oncoaliado.Comandos.Eventos.ComandoGetAllEventos;
 import oncoaliado.Comandos.ComandoFactory;
 import oncoaliado.Comandos.Eventos.ComandoGetEventosActivos;
 import oncoaliado.Comandos.Eventos.ComandoPutEvento;
+import oncoaliado.Comandos.Eventos.ComandoUpdateEvento;
 import transfer.DtoEvento;
 
 import javax.ws.rs.*;
@@ -55,6 +57,20 @@ public class EventoApi extends AplicacionBase {
             ComandoPutEvento comandoPutEvento = ComandoFactory.ComandoPutEventoInstancia(evento);
             comandoPutEvento.execute();
             return Response.ok(comandoPutEvento.getResult()).build();
+        } catch (Exception ex) {
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
+    }
+
+    //http://localhost:8080/Servidor/api/eventos/updateEvento/5
+    @PUT
+    @Path("/updateEvento/{id}")
+    public Response updateUsuario(@PathParam("id") long id, DtoEvento dtoEvento) {
+        DtoEvento resultado = new DtoEvento();
+        try {
+            ComandoUpdateEvento comandoUpdateEvento = ComandoFactory.ComandoUpdateEventoInstance(dtoEvento, id);
+            comandoUpdateEvento.execute();
+            return Response.ok(comandoUpdateEvento.getResult()).build();
         } catch (Exception ex) {
             return Response.status(Response.Status.NOT_ACCEPTABLE).build();
         }
