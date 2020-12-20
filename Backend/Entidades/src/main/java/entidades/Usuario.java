@@ -9,6 +9,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "USUARIO", schema = "ONCOALIADO")
+@NamedQueries({
+        @NamedQuery(name = "verificarPass", query = "SELECT u FROM Usuario u WHERE u.contrasena = :contrasena AND u.correo = :correo")
+})
 public class Usuario extends EntidadBase{
 
     //Atributos

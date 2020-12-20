@@ -6,6 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "ESTADO", schema = "ONCOALIADO")
+@NamedQueries({
+        @NamedQuery(name = "GetEstadosByPais", query = "SELECT e FROM Estado e WHERE e.pais = :pais")
+})
 public class Estado extends EntidadBase {
 
     //Atributos

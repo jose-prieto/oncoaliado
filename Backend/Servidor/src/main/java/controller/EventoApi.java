@@ -1,6 +1,5 @@
 package controller;
 
-import accesos.Daos.DaoEvento;
 import oncoaliado.Comandos.Eventos.ComandoGetAllEventos;
 import oncoaliado.Comandos.ComandoFactory;
 import oncoaliado.Comandos.Eventos.ComandoGetEventosActivos;
@@ -17,9 +16,8 @@ import javax.ws.rs.core.Response;
 @Consumes( MediaType.APPLICATION_JSON )
 public class EventoApi extends AplicacionBase {
 
-    //http://localhost:8080/Servidor/api/eventos/Eventos
+    //http://localhost:8080/Servidor/api/eventos
     @GET
-    @Path("/Eventos")
     @Produces( MediaType.APPLICATION_JSON )
     @Consumes( MediaType.APPLICATION_JSON )
     public Response getAllEventos() {
@@ -47,9 +45,8 @@ public class EventoApi extends AplicacionBase {
         }
     }
 
-    //http://localhost:8080/Servidor/api/eventos/Evento
+    //http://localhost:8080/Servidor/api/eventos
     @POST
-    @Path("/Evento")
     @Produces( MediaType.APPLICATION_JSON )
     @Consumes( MediaType.APPLICATION_JSON )
     public Response addEvento(DtoEvento evento) {
@@ -62,11 +59,10 @@ public class EventoApi extends AplicacionBase {
         }
     }
 
-    //http://localhost:8080/Servidor/api/eventos/updateEvento/5
+    //http://localhost:8080/Servidor/api/eventos/5
     @PUT
-    @Path("/updateEvento/{id}")
+    @Path("/{id}")
     public Response updateUsuario(@PathParam("id") long id, DtoEvento dtoEvento) {
-        DtoEvento resultado = new DtoEvento();
         try {
             ComandoUpdateEvento comandoUpdateEvento = ComandoFactory.ComandoUpdateEventoInstance(dtoEvento, id);
             comandoUpdateEvento.execute();

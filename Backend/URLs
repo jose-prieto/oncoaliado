@@ -1,6 +1,151 @@
 Eventos:
-	http://localhost:8080/Servidor/api/eventos/Eventos
-	http://localhost:8080/Servidor/api/eventos/EventosActivos
-	http://localhost:8080/Servidor/api/eventos/Evento
+	**get de todos los eventos
+	http://198.12.248.32:8080/Servidor/api/eventos
+	
+	**get eventos activos
+	http://198.12.248.32:8080/Servidor/api/eventos/EventosActivos
+	
+	**post crear evento
+	http://198.12.248.32:8080/Servidor/api/eventos
+{
+    "estatus": "a",
+    "id": 5,
+    "contenido": "la oveja ha fallecido",
+    "direccion": "catia la mar",
+    "estado": {
+        "id": 5
+    },
+    "fecha": "2020-10-09T00:00:00Z[UTC]",
+    "foto": "lenguaje.png",
+    "tipo": "salud",
+    "titulo": "la oveja negra"
+}
+
+	**put update evento
+	http://198.12.248.32:8080/Servidor/api/eventos/4
+{
+    "estatus": "i",
+    "id": 33,
+    "contenido": "la oveja ha fallecido",
+    "direccion": "catia la mar",
+    "estado": {
+        "id": 5
+    },
+    "fecha": "2020-10-09T00:00:00Z[UTC]",
+    "foto": "lenguaje.png",
+    "tipo": "salud",
+    "titulo": "la oveja negra"
+}
+
 Medicos:
-	http://localhost:8080/Servidor/api/medicos/medicos
+	**get de todos los medicos para pagina principal de telemedicina
+	http://198.12.248.32:8080/Servidor/api/medicos/medicos
+	
+Login:
+	**post login
+	http://198.12.248.32:8080/Servidor/api/login
+{
+    "password": "JhML9iRsUdRVx/q+DXpQOQ==",
+    "correo": "jap@gmail.com"
+}
+
+Registro:
+	**Registrar cliente
+	http://localhost:8080/Servidor/api/login/registroPaciente
+{
+    "cedula": "24217857",
+    "estatus": "a",
+    "usuario": {
+        "estatus": "a",
+        "correo": "jap25o94@gmail.com",
+        "apellido1": "Prieto",
+        "apellido2": null,
+        "direccion": "puerto escondido",
+        "contrasena": "e39sIMJU9Lc=",
+        "estado": {
+            "id": 50
+        },
+        "fechaNac": "1920-06-05T00:00:00-07:00[America/Phoenix]",
+        "genero": "mas",
+        "nombre1": "Jose",
+        "nombre2": null,
+        "tipoUsuario": {
+            "id": 1
+        }
+    }
+}
+
+Correo Contacto:
+	**Enviar correo de pregunta modulo de contacto
+	http://localhost:8080/Servidor/api/correo
+{
+    "nombre": "jose prieto",
+    "correo": "jap25o94@gmail.com",
+    "asunto": "prueba",
+    "contenido": "este correo es para probar la funcionalidad"
+}
+
+citas:
+	**get todas las citas
+	http://198.12.248.32:8080/Servidor/api/citas
+	
+	**get citas de medico
+	http://198.12.248.32:8080/Servidor/api/citas/medico/1
+	
+	**get citas de paciente
+	http://localhost:8080/Servidor/api/citas/medico/1
+	
+	
+cifrado:
+
+	private final String keyFront = "5K9dy%;2@!85Df";
+    private String password;
+
+    public String encodeFront() {
+        try {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            byte[] llave = md5.digest(this.keyFront.getBytes(StandardCharsets.UTF_8));
+            byte[] bytesKey = Arrays.copyOf(llave, 24);
+            SecretKey key = new SecretKeySpec(bytesKey, "DESede");
+            Cipher cifrado = Cipher.getInstance("DESede");
+            cifrado.init(Cipher.ENCRYPT_MODE, key);
+
+            byte[] textoPlano = password.getBytes(StandardCharsets.UTF_8);
+            byte[] buffer = cifrado.doFinal(textoPlano);
+            byte[] base64Bytes = Base64.encodeBase64(buffer);
+
+            return new String(base64Bytes);
+        }catch(Exception ex) {
+            return ex.getMessage();
+        }
+    }
+
+    public String decodeFront() {
+        try {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            byte[] password = Base64.decodeBase64(this.password.getBytes(StandardCharsets.UTF_8));
+            byte[] digestOfPassword = md5.digest(this.keyFront.getBytes(StandardCharsets.UTF_8));
+            byte[] keyBytes = Arrays.copyOf(digestOfPassword,24);
+            SecretKey key = new SecretKeySpec(keyBytes, "DESede");
+            Cipher decipher = Cipher.getInstance("DESede");
+            decipher.init(Cipher.DECRYPT_MODE, key);
+
+            byte[] textoPlano = decipher.doFinal(password);
+            return new String(textoPlano, "UTF-8");
+        }catch(Exception ex) {
+            return ex.getMessage();
+        }
+    }
+    
+jtw:
+
+	String key = "oncoKey54";
+	this.jwt = Jwts.builder()
+                        .signWith(SignatureAlgorithm.HS256, key)
+                                    .setSubject("login")
+                                    .setIssuedAt(new Date(tiempo))
+                                    .setExpiration(new Date(tiempo+900000))
+                                    .claim("usuario", dtoInfoLogin)
+                                    .compact();
+                                    
+

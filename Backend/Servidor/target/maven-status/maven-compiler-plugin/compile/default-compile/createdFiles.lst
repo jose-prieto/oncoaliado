@@ -1,4 +1,6 @@
+controller/CorreosApi.class
 controller/LoginApi.class
 controller/EventoApi.class
 controller/MedicoApi.class
+controller/CitaApi.class
 controller/AplicacionBase.class

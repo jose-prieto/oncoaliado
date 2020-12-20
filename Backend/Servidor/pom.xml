@@ -70,8 +70,20 @@
             <artifactId>jaxrs-cors</artifactId>
             <version>0.0.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>jakarta.mail</artifactId>
+            <version>1.6.4</version>
+        </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>internal.repo</id>
+            <name>Internal repo</name>
+            <url>file:///home/jose/gitWorkplace/OncoaliadoDeployment</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <finalName>Servidor</finalName>

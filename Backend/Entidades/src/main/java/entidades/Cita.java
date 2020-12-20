@@ -1,19 +1,20 @@
 package entidades;
 
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "CITA", schema = "ONCOALIADO")
+@NamedQueries({
+        @NamedQuery(name = "GetCitasPaciente", query = "SELECT c FROM Cita c WHERE c.paciente = :paciente")
+})
 public class Cita extends EntidadBase{
 
     //Atributos
     @Column(name = "fecha", nullable = false)
     private GregorianCalendar fecha;
 
-    @Column(name = "descripcion", nullable = true, length = 200)
+    @Column(name = "descripcion", length = 200)
     private String descripcion;
 
     //Relaciones
@@ -21,19 +22,19 @@ public class Cita extends EntidadBase{
     @JoinColumn(name = "id_medico_especialidad", referencedColumnName = "id")
     private EspecialidadMedico medico;
 
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medico_diagnostico", referencedColumnName = "id")
     private EspecialidadMedico medicoDiagnostico;
 
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_paciente", referencedColumnName = "id")
     private Paciente paciente;
 
-    @ManyToOne(optional = true, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_factura", referencedColumnName = "id")
     private Factura factura;
 
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tipo_cita", referencedColumnName = "id")
     private TipoCita tipoCita;
 

@@ -1,8 +1,5 @@
 package transfer;
 
-import com.sun.org.apache.xerces.internal.jaxp.datatype.XMLGregorianCalendarImpl;
-
-import java.sql.Date;
 import java.util.GregorianCalendar;
 
 public class DtoEvento extends DtoBase{

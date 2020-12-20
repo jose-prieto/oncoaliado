@@ -1,5 +1,7 @@
 CREATE DATABASE ONCOALIADO;
 
+USE ONCOALIADO;
+
 CREATE TABLE PAIS (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     estatus ENUM('a','i') NOT NULL DEFAULT 'a',
@@ -129,14 +131,14 @@ CREATE TABLE FACTURA (
 
 CREATE TABLE CITA (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	estatus ENUM ('inactiva','pendiente','lista') NOT NULL,
-	fecha DATE NOT NULL,
+	estatus ENUM ('inactiva','pendiente','en proceso','lista') NOT NULL,
+	fecha DATETIME NOT NULL,
     descripcion VARCHAR(200),
     id_medico_especialidad INT NOT NULL,
     id_medico_diagnostico INT,
     id_paciente INT,
     id_factura INT,
-	id_tipo_cita INT NOT NULL,
+	id_tipo_cita INT,
     CONSTRAINT fk_medico_cita FOREIGN KEY (id_medico_especialidad) REFERENCES ESPECIALIDAD_MEDICO(id),
     CONSTRAINT fk_medico_diagnostico FOREIGN KEY (id_medico_diagnostico) REFERENCES ESPECIALIDAD_MEDICO(id),
     CONSTRAINT fk_factura_cita FOREIGN KEY (id_factura) REFERENCES FACTURA(id),

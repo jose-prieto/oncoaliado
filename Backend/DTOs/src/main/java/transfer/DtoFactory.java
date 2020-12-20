@@ -58,4 +58,8 @@ public class DtoFactory {
         return new DtoUsuario();
     }
 
+    public static DtoInfoLogin DtoInfoLoginInstancia(String correo, String rol, String nombre, String apellido) {
+        return new DtoInfoLogin(correo,rol,nombre,apellido);
+    }
+
 }
