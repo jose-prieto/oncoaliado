@@ -1,5 +1,6 @@
 package transfer;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.GregorianCalendar;
 
@@ -11,6 +12,8 @@ public class DtoCita extends DtoBase {
     private String descripcion;
 
     private String estatus;
+
+    private BigDecimal precio;
 
     //Relaciones
     private DtoEspecialidadMedico medico;
@@ -91,5 +94,13 @@ public class DtoCita extends DtoBase {
 
     public void setEstatus(String estatus) {
         this.estatus = estatus;
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
     }
 }

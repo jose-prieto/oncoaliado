@@ -1,11 +1,11 @@
 package oncoaliado.Comandos;
 
-import excepciones.exceptions;
+import excepciones.Excepciones;
 
 public abstract class ComandoBase<T> {
 
-    public abstract void execute();
+    public abstract void execute() throws Excepciones, Exception;
 
-    public abstract T getResult() throws exceptions;
+    public abstract T getResult() throws Excepciones;
 
 }

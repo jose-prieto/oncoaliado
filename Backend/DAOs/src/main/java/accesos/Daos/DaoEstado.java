@@ -6,6 +6,7 @@ import entidades.Estado;
 import entidades.Pais;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
@@ -26,7 +27,9 @@ public class DaoEstado extends Dao<Estado> {
 
             List<Estado> resultado = estados.getResultList();
             return resultado;
-        }catch (Exception e){
+        } catch(PersistenceException e) {
+            throw e;
+        } catch (Exception e){
             return null;
         }
     }

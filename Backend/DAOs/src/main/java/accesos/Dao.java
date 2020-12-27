@@ -83,6 +83,9 @@ public class Dao<T>
         try
         {
             _daoHandler.beginTransaction();
+            if (!_em.contains(entity)) {
+                entity = _em.merge(entity);
+            }
             _em.remove( entity );
             _em.flush();
             _em.clear();
@@ -148,8 +151,12 @@ public class Dao<T>
         try
         {
             final EntidadBase base = ( EntidadBase ) _em.find( type, id );
-            base.getId();
-            entity = ( T ) base;
+            if(base != null) {
+                base.getId();
+                entity = ( T ) base;
+            } else {
+                entity = null;
+            }
         }
         catch ( Exception e )
         {

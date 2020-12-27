@@ -1,8 +1,6 @@
 package entidades;
 
-import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.GregorianCalendar;
 
 @Entity

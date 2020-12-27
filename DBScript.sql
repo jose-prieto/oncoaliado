@@ -28,7 +28,7 @@ CREATE TABLE USUARIO (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     estatus ENUM('a','i') NOT NULL DEFAULT 'a',
     correo VARCHAR(50) NOT NULL UNIQUE,
-    contrasena VARCHAR(30) NOT NULL,
+    contrasena VARCHAR(200) NOT NULL,
     nombre1 VARCHAR(50) NOT NULL,
     nombre2 VARCHAR(50),
     apellido1 VARCHAR(50) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE USUARIO (
     CONSTRAINT fk_tipo_usuario FOREIGN KEY (id_tipo_usuario) REFERENCES TIPO_USUARIO (id),
     CONSTRAINT unique_usuario_tipo UNIQUE (id, id_tipo_usuario)
 );
-
+    
 CREATE TABLE EVENTO (
     id INT AUTO_INCREMENT PRIMARY KEY,
     estatus ENUM ('a','i') NOT NULL DEFAULT 'a',
@@ -79,7 +79,7 @@ CREATE TABLE MEDICO (
     id INT AUTO_INCREMENT PRIMARY KEY,
     estatus ENUM ('a','i') NOT NULL DEFAULT 'a',
     cedula INT NOT NULL UNIQUE,
-    descripcion VARCHAR(500) NOT NULL,
+    descripcion VARCHAR(500),
     id_usuario INT UNIQUE NOT NULL,
     CONSTRAINT FK_USUARIO_MEDICO FOREIGN KEY (id_usuario) REFERENCES USUARIO (id),
     CONSTRAINT unique_medico_usuario UNIQUE (id, id_usuario)
@@ -123,17 +123,21 @@ CREATE TABLE HIST_PRECIO (
 CREATE TABLE FACTURA (
 	id INT AUTO_INCREMENT PRIMARY KEY,
     estatus ENUM ('pagado', 'pendiente') NOT NULL DEFAULT 'pendiente',
-    fecha DATE NOT NULL,
-    comprobante INT NOT NULL,
-    banco VARCHAR(40) NOT NULL,
-    total DECIMAL(15,2)
+    fecha DATE,
+    comprobante VARCHAR(200),
+    banco VARCHAR(100),
+    total DECIMAL(15,2) NOT NULL
 );
 
+#inactiva: sin paciente; pendiente: con paciente pero sin pago confirmado
+#en proceso: pago confirmado pero en espera de momento de cita
+#lista: cita ya pasó
 CREATE TABLE CITA (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	estatus ENUM ('inactiva','pendiente','en proceso','lista') NOT NULL,
 	fecha DATETIME NOT NULL,
-    descripcion VARCHAR(200),
+    descripcion VARCHAR(16000),
+    precio DECIMAL(15,2),
     id_medico_especialidad INT NOT NULL,
     id_medico_diagnostico INT,
     id_paciente INT,

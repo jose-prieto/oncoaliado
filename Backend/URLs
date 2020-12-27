@@ -49,6 +49,29 @@ Login:
     "correo": "jap@gmail.com"
 }
 
+	**post registrar paciente
+	http://localhost:8080/Servidor/api/login/registroPaciente
+{
+    "cedula": "24217857",
+    "estatus": "a",
+    "usuario": {
+        "estatus": "a",
+        "correo": "jap25o94@gmail.com",
+        "apellido1": "Prieto",
+        "direccion": "puerto escondido",
+        "contrasena": "e39sIMJU9Lc=",
+        "estado": {
+            "id": 50
+        },
+        "fechaNac": "1920-06-05T00:00:00-07:00[America/Phoenix]",
+        "genero": "mas",
+        "nombre1": "Jose",
+        "tipoUsuario": {
+            "id": 1
+        }
+    }
+}
+
 Registro:
 	**Registrar cliente
 	http://localhost:8080/Servidor/api/login/registroPaciente
@@ -93,8 +116,36 @@ citas:
 	http://198.12.248.32:8080/Servidor/api/citas/medico/1
 	
 	**get citas de paciente
-	http://localhost:8080/Servidor/api/citas/medico/1
+	http://localhost:8080/Servidor/api/citas/paciente/1
 	
+	**get citas inactivas
+	http://198.12.248.32:8080/Servidor/api/citas/medico/inactivas/idmedicoespecialidad
+	
+	**generar citas (post)
+	http://localhost:8080/Servidor/api/citas/id
+[
+    {
+        "fecha": "2020-05-07T08:00:00",
+        "duracion": 40,
+        "cantCitas": 3
+    },
+    {
+        "fecha": "2020-05-08T08:00:00",
+        "duracion": 40,
+        "cantCitas": 3
+    }
+]
+
+	**update cita (put)
+{
+    "estatus": "inactiva",
+    "id": 1,
+    "fecha": "2020-05-05T08:00:00-07:00[America/Phoenix]",
+    "descripcion": "http://www.mastertheboss.com/jboss-server/jboss-configuration/how-to-access-wildfly-admin-console",
+    "medico": {
+        "id": 1
+    }
+}	
 	
 cifrado:
 
@@ -148,4 +199,12 @@ jtw:
                                     .claim("usuario", dtoInfoLogin)
                                     .compact();
                                     
-
+lugar:
+	**get lugares:
+	http://localhost:8080/Servidor/api/lugares
+	
+	**get paises:
+	http://localhost:8080/Servidor/api/lugares/paises
+	
+	**get estados de un pais:
+	http://localhost:8080/Servidor/api/lugares/estados/{id}

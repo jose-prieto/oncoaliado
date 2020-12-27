@@ -26,6 +26,8 @@ public class PruebaCod {
         System.out.println("original: " + passwordOriginal);
         System.out.println("encriptado para Back: " + encoToBack.encodeBack());
         System.out.println("Traduccion: " + decoToBack.decodeBack());
+        System.out.println();
+        System.out.println("de back a normal: " + decoToBack);
 
         //front encript
         //JhML9iRsUdRVx/q+DXpQOQ==

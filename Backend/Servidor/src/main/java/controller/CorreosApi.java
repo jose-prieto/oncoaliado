@@ -9,11 +9,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/correo")
+@Produces( MediaType.APPLICATION_JSON )
+@Consumes( MediaType.APPLICATION_JSON )
 public class CorreosApi extends AplicacionBase {
 
     @POST
-    @Produces( MediaType.APPLICATION_JSON )
-    @Consumes( MediaType.APPLICATION_JSON )
     public Response CorreoPregunta(DtoCorreo dtoCorreo) {
         try {
             ComandoCorreo comandoCorreo = ComandoFactory.ComandoCorreoPreguntaInstancia(dtoCorreo);

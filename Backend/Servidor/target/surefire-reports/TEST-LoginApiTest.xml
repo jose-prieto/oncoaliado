@@ -6,7 +6,7 @@
     <property name="sun.boot.library.path" value="/home/jose/Downloads/jdk1.8.0_271/jre/lib/amd64"/>
     <property name="java.vm.version" value="25.271-b09"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/jose/gitWorkplace/oncoaliado/Backend/Servidor"/>
+    <property name="maven.multiModuleProjectDirectory" value="/home/jose/gitWorkplace/oncoaliado/Backend"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/jose/gitWorkplace/oncoaliado/Backend/Servidor"/>
+    <property name="user.dir" value="/home/jose/gitWorkplace/oncoaliado/Backend"/>
     <property name="java.runtime.version" value="1.8.0_271-b09"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/home/jose/Downloads/jdk1.8.0_271/jre/lib/endorsed"/>

@@ -5,6 +5,9 @@ import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "EVENTO", schema = "ONCOALIADO")
+@NamedQueries({
+        @NamedQuery(name = "eventosInactivos", query = "SELECT e FROM Evento e WHERE e.estatus = :estatus")
+})
 public class Evento extends EntidadBase{
 
     //Atributos

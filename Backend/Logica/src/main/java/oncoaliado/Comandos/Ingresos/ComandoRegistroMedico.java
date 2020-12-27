@@ -3,78 +3,145 @@ package oncoaliado.Comandos.Ingresos;
 import accesos.DaoFactory;
 import accesos.Daos.*;
 import entidades.*;
+import excepciones.Excepciones;
 import oncoaliado.Comandos.ComandoBase;
-import transfer.DtoEspecialidadMedico;
-import transfer.DtoFactory;
+import transfer.*;
 
+/**
+ * @author José Prieto
+ * @version 1.0
+ */
 public class ComandoRegistroMedico extends ComandoBase {
 
-    private DtoEspecialidadMedico dtoEspecialidadMedico = DtoFactory.DtoEspecialidadMedicoInstancia();
+    private final DtoEspecialidadMedico dtoEspecialidadMedico;
+    private final DaoUsuario daoUsuario = DaoFactory.DaoUsuarioInstancia();
+    private final DaoMedico daoMedico = DaoFactory.DaoMedicoInstancia();
+    private final DaoEspecialidad daoEspecialidad = DaoFactory.DaoEspecialidadInstancia();
+    private final DtoMedico dtoMedico;
+    private final DtoEspecialidad dtoEspecialidad;
+    private final DtoUsuario dtoUsuario;
     private EspecialidadMedico especialidadMedico = FactoryEntidades.EspecialidadMedicoInstancia();
+    private Usuario usuario;
+    private Medico medico = FactoryEntidades.MedicoInstancia();
+    private Especialidad especialidad;
 
-    public ComandoRegistroMedico(DtoEspecialidadMedico dtoEspecialidadMedico) {
-        this.dtoEspecialidadMedico = dtoEspecialidadMedico;
+    /**
+     * constructor de la clase
+     * @since 26/12/2020
+     * @param dtoEspecialidadMedico Variable usada para obtenet los datos del médico.
+     * @see DtoEspecialidadMedico Data transfer object usado para obtener los datos del médico a registrar.
+     * @throws Excepciones Retorna excepcrón en caso de que alguno de los datos sea inválido.
+     */
+    public ComandoRegistroMedico(DtoEspecialidadMedico dtoEspecialidadMedico) throws Excepciones {
+        if (dtoEspecialidadMedico == null) {
+            throw new Excepciones("La especialidad_medico no debe ser null.");
+        } else if(dtoEspecialidadMedico.getMedico() == null) {
+            throw new Excepciones("El medico de la especialidad_medico no debe ser null.");
+        } else if(dtoEspecialidadMedico.getMedico().getUsuario() == null) {
+            throw new Excepciones("El usuario del médico no debe ser null");
+        } else {
+            this.dtoEspecialidadMedico = dtoEspecialidadMedico;
+            this.dtoMedico = dtoEspecialidadMedico.getMedico();
+            this.dtoEspecialidad = dtoEspecialidadMedico.getEspecialidad();
+            this.dtoUsuario = dtoEspecialidadMedico.getMedico().getUsuario();
+        }
     }
 
-    public Usuario addUsuario() {
-        Decodificación decoFront = new Decodificación(dtoEspecialidadMedico.getMedico().getUsuario().getContrasena());
-        Decodificación decoBack = new Decodificación(decoFront.decodeFront());
+    /**
+     * Método usado para ingresar los datos correspondientes a la tabla médico
+     * @since 26/12/2020
+     * @see AddUsuario Clase donde se encuentra la lógica para agregar al usuario del médico.
+     * @see DtoMedico Data transfer object usado para poder obtener los datos del médico.
+     * @see Medico Entidad persistente usada para registrar al usuario.
+     * @see DaoMedico Data access object usado para registrar al médico.
+     * @throws Excepciones Lanza excepción en caso de que el haya algún problema con la cédula del médico o por alguna
+     * razón el mismo no se haya podido registrar de manera correcta.
+     */
+    private void addMedico() throws Excepciones {
+        AddUsuario addUsuario = new AddUsuario();
+        this.usuario = addUsuario.addUsuario(this.dtoUsuario);
 
-        Usuario usuario = FactoryEntidades.UsuarioInstancia();
-        DaoUsuario daoUsuario = DaoFactory.DaoUsuarioInstancia();
-
-        usuario.setEstatus(this.dtoEspecialidadMedico.getMedico().getUsuario().getEstatus());
-        usuario.setCorreo(this.dtoEspecialidadMedico.getMedico().getUsuario().getCorreo());
-        usuario.setContrasena(decoBack.encodeBack());
-        usuario.setNombre1(this.dtoEspecialidadMedico.getMedico().getUsuario().getNombre1());
-        usuario.setNombre2(this.dtoEspecialidadMedico.getMedico().getUsuario().getNombre2());
-        usuario.setApellido1(this.dtoEspecialidadMedico.getMedico().getUsuario().getApellido1());
-        usuario.setApellido2(this.dtoEspecialidadMedico.getMedico().getUsuario().getApellido2());
-        usuario.setFechaNac(this.dtoEspecialidadMedico.getMedico().getUsuario().getFechaNac());
-        usuario.setGenero(this.dtoEspecialidadMedico.getMedico().getUsuario().getGenero());
-        usuario.setFoto(this.dtoEspecialidadMedico.getMedico().getUsuario().getFoto());
-        usuario.setDireccion(this.dtoEspecialidadMedico.getMedico().getUsuario().getDireccion());
-
-        DaoEstado estado = DaoFactory.DaoEstadoInstancia();
-        usuario.setEstado(estado.find(this.dtoEspecialidadMedico.getMedico().getUsuario().getEstado().getId(), Estado.class));
-
-        DaoTipoUsuario tipoUsuario = DaoFactory.DaoTipoUsuarioInstancia();
-        usuario.setTipoUsuario(tipoUsuario.find(this.dtoEspecialidadMedico.getMedico().getUsuario().getTipoUsuario().getId(), TipoUsuario.class));
-        return daoUsuario.insert(usuario);
-    }
-
-    public Medico addMedico() {
-        Medico medico = FactoryEntidades.MedicoInstancia();
+        if (this.dtoMedico.getCedula() <= 0) {
+            this.daoUsuario.delete(this.usuario);
+            throw new Excepciones("El campo cédula debe estar lleno y debe ser mayor a 0.");
+        }
         DaoMedico daoMedico = DaoFactory.DaoMedicoInstancia();
 
-        Usuario usuario = addUsuario();
-        medico.setUsuario(usuario);
+        this.medico.setUsuario(this.usuario);
+        this.medico.setCedula(this.dtoEspecialidadMedico.getMedico().getCedula());
+        this.medico.setEstatus("a");
+        this.medico.setDescripcion(this.dtoEspecialidadMedico.getMedico().getDescripcion());
 
-        medico.setCedula(this.dtoEspecialidadMedico.getMedico().getCedula());
-        medico.setEstatus(this.dtoEspecialidadMedico.getMedico().getEstatus());
-        medico.setDescripcion(this.dtoEspecialidadMedico.getMedico().getDescripcion());
-
-        return daoMedico.insert(medico);
+        this.medico = daoMedico.insert(medico);
+        if(this.medico.getId() == 0) {
+            this.daoUsuario.delete(this.usuario);
+            throw new Excepciones("El médico no fue agregado de manera correcta.");
+        }
     }
 
-    public EspecialidadMedico addEspecialidadMedico() {
-        Medico medico = addMedico();
-        this.especialidadMedico.setMedico(medico);
-        this.especialidadMedico.setEstatus(dtoEspecialidadMedico.getEstatus());
-        DaoEspecialidad daoEspecialidad = DaoFactory.DaoEspecialidadInstancia();
-        this.especialidadMedico.setEspecialidad(daoEspecialidad.find(dtoEspecialidadMedico.getEspecialidad().getId(), Especialidad.class));
+    /**
+     * Método encargado de añadir una especialidad.
+     * @see DtoEspecialidad Data transfer object usado para obtener la especialidad a asociar con el médico.
+     * @see DaoEspecialidad Data access object usada para asociar al medico con su especialidad.
+     * @see Especialidad Entidad persistente usada para almacenar la especialidad en cache.
+     * @throws Excepciones Lanza excepción en caso de que la especialidad no se agregue de manera correcta.
+     */
+    private void addEspecialidad() throws Excepciones{
+        if(this.dtoEspecialidad.getId() <= 0) {
+            this.daoMedico.delete(this.medico);
+            this.daoUsuario.delete(this.usuario);
+            throw new Excepciones("El id de la especialidad debe ser mayor a 0.");
+        }
+
+        this.especialidad = this.daoEspecialidad.find(dtoEspecialidad.getId(), Especialidad.class);
+        if(this.especialidad.getId() <= 0) {
+            this.daoMedico.delete(this.medico);
+            this.daoUsuario.delete(this.usuario);
+            throw new Excepciones("La especialidad no se pudo agregar de manera correcta.");
+        }
+    }
+
+    /**
+     * Método encargado de añadir el registro en especialidad médico con todos sus atributos.
+     * @see EspecialidadMedico Entidad persistente usada para Retornar la información recién insertada.
+     * @see DaoEspecialidaMedico Data access object usado para insertar la nueva especialidadMedico.
+     * @throws Excepciones Lanza excepción en caso de que la especialidadMedico no se haya insertado de manera correcta.
+     */
+    public void addEspecialidadMedico() throws Excepciones {
+        addMedico();
+        addEspecialidad();
+
+        this.especialidadMedico.setEstatus("a");
+        this.especialidadMedico.setMedico(this.medico);
+        this.especialidadMedico.setEspecialidad(this.especialidad);
+
         DaoEspecialidaMedico daoEspecialidaMedico = DaoFactory.DaoEspecialidaMedicoInstancia();
         this.especialidadMedico = daoEspecialidaMedico.insert(this.especialidadMedico);
-        return this.especialidadMedico;
+        if (this.especialidadMedico.getId() == 0) {
+            this.daoMedico.delete(this.medico);
+            this.daoUsuario.delete(this.usuario);
+            throw new Excepciones("La especialidad_medico no fue agregada de manera correcta.");
+        }
     }
 
+    /**
+     * Método usado para correr la secuencia de métodos.
+     * @throws Excepciones relanza excepciones obtenida en métodos anteriores.
+     */
     @Override
-    public void execute() {
+    public void execute() throws Excepciones {
+        addEspecialidadMedico();
     }
 
+    /**
+     * Método usado para retornar los datos de la EspecialidadMedico insertados en el sistema.
+     * @return Objeto de tipo EspecialidadMedico
+     * @see EspecialidadMedico Entidad persistente usada para retornar los datos insertados en el sistema.
+     * @throws Excepciones relanza excepciones obtenidas en métodos anteriores.
+     */
     @Override
-    public EspecialidadMedico getResult() {
-        this.especialidadMedico = addEspecialidadMedico();
+    public EspecialidadMedico getResult() throws Excepciones{
+        execute();
         return this.especialidadMedico;
     }
 

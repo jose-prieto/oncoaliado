@@ -12,16 +12,16 @@ import java.util.List;
 public class Factura extends EntidadBase{
 
     //Atributos
-    @Column(name = "fecha", nullable = false)
+    @Column(name = "fecha")
     private GregorianCalendar fecha;
 
-    @Column(name = "comprobante", nullable = false)
-    private int comprobante;
+    @Column(name = "comprobante", length = 200)
+    private String comprobante;
 
-    @Column(name = "banco", nullable = false, length = 40)
+    @Column(name = "banco", length = 100)
     private String banco;
 
-    @Column(name = "total", nullable = true, precision = 2)
+    @Column(name = "total", nullable = false, precision = 2)
     private BigDecimal total;
 
     //Relacion
@@ -43,11 +43,11 @@ public class Factura extends EntidadBase{
         this.fecha = fecha;
     }
 
-    public int getComprobante() {
+    public String getComprobante() {
         return comprobante;
     }
 
-    public void setComprobante(int comprobante) {
+    public void setComprobante(String comprobante) {
         this.comprobante = comprobante;
     }
 

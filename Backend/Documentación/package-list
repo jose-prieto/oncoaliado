@@ -1,0 +1,16 @@
+
+accesos
+accesos.Daos
+controller
+entidades
+excepciones
+oncoaliado.Comandos
+oncoaliado.Comandos.Citas
+oncoaliado.Comandos.Correos
+oncoaliado.Comandos.Especialidades
+oncoaliado.Comandos.Eventos
+oncoaliado.Comandos.Ingresos
+oncoaliado.Comandos.Lugares
+oncoaliado.Comandos.Medicos
+oncoaliado.Comandos.TipoCita
+transfer

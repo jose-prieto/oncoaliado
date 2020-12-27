@@ -10,11 +10,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/lugares")
+@Produces( MediaType.APPLICATION_JSON )
+@Consumes( MediaType.APPLICATION_JSON )
 public class LugarApi extends AplicacionBase {
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response getLugares() {
         try {
             ComandoGetLugares comandoGetLugares = ComandoFactory.ComandoGetLugaresInstancia();
@@ -27,8 +27,6 @@ public class LugarApi extends AplicacionBase {
 
     @GET
     @Path("/paises")
-    @Produces( MediaType.APPLICATION_JSON )
-    @Consumes( MediaType.APPLICATION_JSON )
     public Response getPaises() {
         try {
             ComandoGetPaises comandoGetPaises = ComandoFactory.ComandoGetPaisesInstancia();
@@ -41,8 +39,6 @@ public class LugarApi extends AplicacionBase {
 
     @GET
     @Path("/estados/{id}")
-    @Produces( MediaType.APPLICATION_JSON )
-    @Consumes( MediaType.APPLICATION_JSON )
     public Response getEstados(@PathParam("id") long id) {
         try {
             ComandoGetEstados comandoGetEstados = ComandoFactory.ComandoGetEstadosInstancia(id);

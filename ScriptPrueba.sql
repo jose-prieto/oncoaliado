@@ -2225,36 +2225,18 @@ INSERT INTO TIPO_USUARIO (tipo,descripcion)
 INSERT INTO USUARIO (correo,contrasena,nombre1,nombre2,apellido1,apellido2,fechaNac,genero,foto,direccion,
 							id_estado,id_tipo_usuario)
 	VALUES
-		('jap@gmail.com', 'bGwmWwPngpg0g9bUM+2ndQ==', 'jose',null,'prieto',null,'1994-05-10', 'mas',null,'calle madrid',100,1),
-        ('jap25@gmail.com', 'bGwmWwPngpiI+yJLOcHVcA==', 'pedro',null,'rodriguez',null,'1920-06-05','fem',null,'puerto escondido',50,2);
+		('jap25o94@gmail.com', '/trT4s2p+Eg=', 'ligney',null,'gonzález',null,'1994-05-10', 'fem',null,'calle madrid',100,3);
         
-INSERT INTO EVENTO (titulo,contenido,direccion,tipo,foto,fecha,id_estado)
-	VALUES
-		('Primera versión de la página web Oncoaliado','Nos complace darles la bienvenida a la muestra de la primera versión de la página Web oncoaliado','cartajena','salud',null,'2020-05-05',16),
-        ('Listado de eventos del tipo salud','Podemos observar como se listan eventos del tipo Salud','cartajena','salud',null,'2020-05-05',16),
-        ('Evento del tipo "otros"','contenido del evento numero 2','cordoba','otro',null,'2020-05-05',1000),
-        ('Evento número3','contenido del evento numero 3','caracas','educativo',null,'2020-05-05',900),
-        ('Evento número4','contenido del evento numero 4','trujillo','salud',null,'2020-05-05',87);
-        
-INSERT INTO HIST_CAMBIO (descripcion,fecha,id_usuario)
-	VALUES
-		('Cambio de contraseña', '2020-05-05',1),
-        ('Cambio de clave', '2020-05-05',2),
-        ('eliminacion', '2020-05-05',3),
-        ('cambio de puertos', '2020-05-05',4);
-        
-INSERT INTO PACIENTE (cedula,id_usuario)
-	values
-		(24214756, 1);
-
-INSERT INTO MEDICO (cedula,descripcion,id_usuario)
-	values
-		(36785237,'medico numero 1 de prueba', 2);
-
 INSERT INTO ESPECIALIDAD (nombre)
 	values
 		('oncologia');
-
-INSERT INTO ESPECIALIDAD_MEDICO (id_medico,id_especialidad)
+        
+INSERT INTO TIPO_CITA (nombre)
+	values
+		('teleconferencia'),
+        ('cita en la sede');
+        
+INSERT INTO HIST_PRECIO (fecha_inicio, id_tipo_cita, precio)
 	VALUES
-		(1,1);
+		('2020-05-05',1,20.00),
+        ('2020-05-05',2,20.00);

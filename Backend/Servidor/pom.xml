@@ -34,6 +34,11 @@
             <version>1.0</version>
         </dependency>
         <dependency>
+            <groupId>org.excepciones</groupId>
+            <artifactId>Excepciones</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
@@ -66,6 +71,16 @@
             <version>0.9.1</version>
         </dependency>
         <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
+        </dependency>
+        <dependency>
             <groupId>com.airhacks</groupId>
             <artifactId>jaxrs-cors</artifactId>
             <version>0.0.2</version>
@@ -76,14 +91,6 @@
             <version>1.6.4</version>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <id>internal.repo</id>
-            <name>Internal repo</name>
-            <url>file:///home/jose/gitWorkplace/OncoaliadoDeployment</url>
-        </repository>
-    </distributionManagement>
 
     <build>
         <finalName>Servidor</finalName>

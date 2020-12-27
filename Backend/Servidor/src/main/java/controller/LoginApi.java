@@ -8,50 +8,60 @@ import transfer.DtoEspecialidadMedico;
 import transfer.DtoLogin;
 import transfer.DtoPaciente;
 
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path( "/login" )
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class LoginApi extends AplicacionBase{
 
     //http://localhost:8080/Servidor/api/login
     @POST
-    @Produces( MediaType.APPLICATION_JSON )
-    @Consumes( MediaType.APPLICATION_JSON )
     public Response login(DtoLogin dtoLogin) {
         try{
             ComandoLogin comandoLogin = ComandoFactory.ComandoLoginInstance(dtoLogin);
             comandoLogin.execute();
             return Response.status(Response.Status.CREATED).entity(comandoLogin.getResult()).build();
         } catch(Exception ex) {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+            JsonObject data = Json.createObjectBuilder()
+                    .add("estado", "Excepcion")
+                    .add("excepcion",ex.getMessage())
+                    .add("codigo", 500).build();
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(data).build();
         }
     }
 
     @POST
     @Path( "/registroPaciente" )
-    @Produces( MediaType.APPLICATION_JSON )
-    @Consumes( MediaType.APPLICATION_JSON )
     public Response RegistroPaciente(DtoPaciente dtoPaciente) {
         try{
             ComandoRegistroPaciente comandoRegistroPaciente = ComandoFactory.ComandoRegistroPacienteInstancia(dtoPaciente);
             return Response.status(Response.Status.CREATED).entity(comandoRegistroPaciente.getResult()).build();
         } catch(Exception ex) {
-            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(ex).build();
+            JsonObject data = Json.createObjectBuilder()
+                    .add("estado", "Excepcion")
+                    .add("excepcion",ex.getMessage())
+                    .add("codigo", 500).build();
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(data).build();
         }
     }
 
     @POST
     @Path("/registroMedico")
-    @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
     public Response RegistroMedico(DtoEspecialidadMedico dtoEspecialidadMedico) {
         try{
             ComandoRegistroMedico comandoRegistroMedico = ComandoFactory.ComandoRegistroMedicoInstancia(dtoEspecialidadMedico);
             return Response.status(Response.Status.CREATED).entity(comandoRegistroMedico.getResult()).build();
         } catch(Exception ex) {
-            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(ex).build();
+            JsonObject data = Json.createObjectBuilder()
+                    .add("estado", "Excepcion")
+                    .add("excepcion",ex.getMessage())
+                    .add("codigo", 500).build();
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(data).build();
         }
     }
 

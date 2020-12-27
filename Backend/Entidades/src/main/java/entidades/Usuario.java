@@ -18,7 +18,7 @@ public class Usuario extends EntidadBase{
     @Column(name = "correo", nullable = false, length = 50)
     private String correo;
 
-    @Column(name = "contrasena", nullable = false, length = 30)
+    @Column(name = "contrasena", nullable = false, length = 200)
     private String contrasena;
 
     @Column(name = "nombre1", nullable = false, length = 50)

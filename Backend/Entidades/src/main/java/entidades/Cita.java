@@ -1,12 +1,17 @@
 package entidades;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "CITA", schema = "ONCOALIADO")
 @NamedQueries({
-        @NamedQuery(name = "GetCitasPaciente", query = "SELECT c FROM Cita c WHERE c.paciente = :paciente")
+        @NamedQuery(name = "GetCitasMedico", query = "SELECT c FROM Cita c WHERE c.medico.medico = :medico"),
+        @NamedQuery(name = "GetCitasPaciente", query = "SELECT c FROM Cita c WHERE c.paciente = :paciente"),
+        @NamedQuery(name = "GetCitasPendiente", query = "SELECT c FROM Cita c WHERE c.estatus = :estatus AND c.factura.estatus = :estatusFactura"),
+        @NamedQuery(name = "GetCitasInactivas", query = "SELECT c FROM Cita c WHERE c.estatus = :estatus AND c.medico = :medicoEspecialidad"),
+        @NamedQuery(name = "getPrecio", query = "SELECT h.precio FROM HistPrecio h WHERE h.estatus = 'a' AND h.tipoCita = :tipoCita")
 })
 public class Cita extends EntidadBase{
 
@@ -16,6 +21,9 @@ public class Cita extends EntidadBase{
 
     @Column(name = "descripcion", length = 200)
     private String descripcion;
+
+    @Column(name = "precio", precision = 2)
+    private BigDecimal precio;
 
     //Relaciones
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
@@ -98,5 +106,13 @@ public class Cita extends EntidadBase{
 
     public void setTipoCita(TipoCita tipoCita) {
         this.tipoCita = tipoCita;
+    }
+
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
     }
 }

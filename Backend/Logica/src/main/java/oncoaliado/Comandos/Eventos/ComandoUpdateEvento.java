@@ -5,45 +5,54 @@ import accesos.Daos.DaoEvento;
 import entidades.Estado;
 import entidades.Evento;
 import entidades.FactoryEntidades;
+import excepciones.Excepciones;
 import oncoaliado.Comandos.ComandoBase;
 import transfer.DtoEvento;
 
 public class ComandoUpdateEvento extends ComandoBase {
 
-    Evento evento;
+    private Evento evento;
+    private DtoEvento dtoEvento;
 
-    public ComandoUpdateEvento(DtoEvento dtoEvento, long id) {
-        try {
-            DaoEvento dao = new DaoEvento();
-            this.evento = dao.find(id, Evento.class);
-
-            this.evento.setTitulo(dtoEvento.getTitulo());
-            this.evento.setTipo(dtoEvento.getTipo());
-            this.evento.setFoto(dtoEvento.getFoto());
-            this.evento.setEstatus(dtoEvento.getEstatus());
-            this.evento.setDireccion(dtoEvento.getDireccion());
-            this.evento.setFecha(dtoEvento.getFecha());
-            this.evento.setContenido(dtoEvento.getContenido());
-
-            Estado estado = FactoryEntidades.EstadoInstancia(dtoEvento.getEstado().getId());
-            this.evento.setEstado(estado);
-        } catch(Exception ex) {
-            System.out.println(ex);
+    public ComandoUpdateEvento(DtoEvento dtoEvento) throws Excepciones {
+        try{
+            if(dtoEvento == null) {
+                throw new Excepciones("El objeto dtoEvento no está presente.");
+            }else if(dtoEvento.getId() <= 0){
+                throw new Excepciones("El objeto debe tener un id mayor o igual a 0.");
+            }else {
+                this.dtoEvento = dtoEvento;
+            }
+        }catch(Excepciones e) {
+            throw e;
+        }catch(Exception e) {
+            throw e;
         }
     }
 
     @Override
-    public void execute() {
+    public void execute() throws Excepciones{
         try {
-            DaoEvento dao = DaoFactory.DaoEventoInstancia();
-            this.evento = dao.update(this.evento);
-        } catch(Exception ex) {
-            String prueba = ex.getMessage();
+            CrearEvento crearEvento = new CrearEvento(this.dtoEvento);
+            DaoEvento daoEvento = DaoFactory.DaoEventoInstancia();
+            this.evento = crearEvento.updateEvento();
+            this.evento = daoEvento.update(this.evento);
+        } catch(Excepciones e) {
+            throw e;
+        } catch(Exception e) {
+            throw e;
         }
     }
 
     @Override
-    public Evento getResult(){
-        return this.evento;
+    public Evento getResult() throws Excepciones {
+        try {
+            execute();
+            return this.evento;
+        }catch(Excepciones e) {
+            throw e;
+        }catch(Exception e) {
+            throw e;
+        }
     }
 }

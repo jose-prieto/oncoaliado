@@ -6,55 +6,88 @@ import accesos.Daos.DaoPaciente;
 import accesos.Daos.DaoTipoUsuario;
 import accesos.Daos.DaoUsuario;
 import entidades.*;
+import excepciones.Excepciones;
 import oncoaliado.Comandos.ComandoBase;
 import transfer.DtoPaciente;
+import transfer.DtoUsuario;
+
+import javax.persistence.PersistenceException;
 
 public class ComandoRegistroPaciente extends ComandoBase {
 
     private Paciente paciente = FactoryEntidades.PacienteInstancia();
     private Usuario usuario = FactoryEntidades.UsuarioInstancia();
+    private DtoUsuario dtoUsuario;
+    private DtoPaciente dtoPaciente;
 
-    public ComandoRegistroPaciente(DtoPaciente paciente) {
+    public ComandoRegistroPaciente(DtoPaciente dtoPaciente) throws Excepciones{
         try {
-            Decodificación decoFront = new Decodificación(paciente.getUsuario().getContrasena());
-            Decodificación decoBack = new Decodificación(decoFront.decodeFront());
+            if(dtoPaciente == null) {
+                throw new Excepciones("El paciente no debe ser null.");
+            }else if(dtoPaciente.getUsuario() == null) {
+                throw new Excepciones("El usuario del paciente no debe ser null.");
+            } else {
+                this.dtoUsuario = dtoPaciente.getUsuario();
+                this.dtoPaciente = dtoPaciente;
+            }
+        }catch (Excepciones e) {
+            throw e;
+        }catch (Exception e) {
+            throw e;
+        }
 
-            this.usuario.setEstatus(paciente.getUsuario().getEstatus());
-            this.usuario.setCorreo(paciente.getUsuario().getCorreo());
-            this.usuario.setContrasena(decoBack.encodeBack());
-            this.usuario.setNombre1(paciente.getUsuario().getNombre1());
-            this.usuario.setNombre2(paciente.getUsuario().getNombre2());
-            this.usuario.setApellido1(paciente.getUsuario().getApellido1());
-            this.usuario.setApellido2(paciente.getUsuario().getApellido2());
-            this.usuario.setFechaNac(paciente.getUsuario().getFechaNac());
-            this.usuario.setGenero(paciente.getUsuario().getGenero());
-            this.usuario.setFoto(paciente.getUsuario().getFoto());
-            this.usuario.setDireccion(paciente.getUsuario().getDireccion());
+    }
 
-            DaoEstado estado = DaoFactory.DaoEstadoInstancia();
-            this.usuario.setEstado(estado.find(paciente.getUsuario().getEstado().getId(), Estado.class));
-
-            DaoTipoUsuario tipoUsuario = DaoFactory.DaoTipoUsuarioInstancia();
-            this.usuario.setTipoUsuario(tipoUsuario.find(paciente.getUsuario().getTipoUsuario().getId(), TipoUsuario.class));
-
-            this.paciente.setCedula(paciente.getCedula());
-            this.paciente.setEstatus(paciente.getEstatus());
-
+    public void addPaciente() throws Excepciones{
+        try {
+            AddUsuario addUsuario = new AddUsuario();
+            this.usuario = addUsuario.addUsuario(this.dtoUsuario);
             DaoUsuario daoUsuario = DaoFactory.DaoUsuarioInstancia();
-            Usuario usuario = daoUsuario.insert(this.usuario);
-            this.paciente.setUsuario(daoUsuario.find(usuario.getId(), Usuario.class));
-        } catch(Exception ex) {
-            System.out.println(ex);
+
+            if (this.dtoPaciente.getCedula() <= 0){
+                daoUsuario.delete(daoUsuario.find(this.usuario.getId(), Usuario.class));
+                throw new Excepciones("El campo cédula debe estar lleno y debe ser mayor a 0.");
+            }
+            this.paciente.setUsuario(this.usuario);
+            this.paciente.setEstatus("a");
+            this.paciente.setCedula(this.dtoPaciente.getCedula());
+
+            DaoPaciente daoPaciente = DaoFactory.DaoPacienteInstancia();
+            this.paciente = daoPaciente.insert(this.paciente);
+            if (this.paciente == null) {
+                daoUsuario.delete(this.usuario);
+                throw new Excepciones("El paciente no fue agregado de manera correcta.");
+            }
+        }catch(Excepciones e) {
+            throw e;
+        }catch(PersistenceException e) {
+            throw e;
+        }catch(Exception e) {
+            throw e;
         }
     }
 
     @Override
-    public void execute() {
+    public void execute() throws Excepciones {
+        try {
+            addPaciente();
+        } catch(Excepciones e) {
+            throw e;
+        } catch(Exception e) {
+            throw e;
+        }
     }
 
-    public Paciente getResult() {
-        DaoPaciente daoPaciente = DaoFactory.DaoPacienteInstancia();
-        return daoPaciente.insert(this.paciente);
+    @Override
+    public Paciente getResult() throws Excepciones{
+        try {
+            execute();
+            return this.paciente;
+        }catch(PersistenceException e) {
+            throw e;
+        }catch(Exception e) {
+            throw e;
+        }
     }
 
 }

@@ -33,10 +33,6 @@ public class Estado extends EntidadBase {
         super();
     }
 
-    public Estado(long id) {
-        super(id);
-    }
-
     //Getters y Setters
     public String getNombre() {
         return nombre;

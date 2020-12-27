@@ -7,32 +7,33 @@ import oncoaliado.Comandos.ComandoBase;
 
 import java.util.List;
 
+/**
+ * @author José Prieto
+ * @version 1.0
+ * @since 24/12/2020
+ */
 public class ComandoGetEventosActivos extends ComandoBase {
 
     private List<Evento> eventos;
 
-    public void borrarInactivos() {
-        try{
-            for (Evento obj: eventos) {
-                if (obj.getEstatus().equals("i")) {
-                    this.eventos.remove(obj);
-                }
-            }
-        }catch (Exception e) {
-            System.out.println(e);
+    @Override
+    public void execute() {
+        try {
+            DaoEvento dao = DaoFactory.DaoEventoInstancia();
+            this.eventos = dao.eventosInactivos();
+        }catch(Exception e) {
+            throw e;
         }
     }
 
     @Override
-    public void execute() {
-        DaoEvento dao = DaoFactory.DaoEventoInstancia();
-        this.eventos = dao.findAll(Evento.class);
-        borrarInactivos();
-    }
-
-    @Override
     public List<Evento> getResult() {
-        return eventos;
+        try {
+            execute();
+            return eventos;
+        }catch(Exception e) {
+            throw e;
+        }
     }
 
 }

@@ -12,7 +12,7 @@ public class Medico extends EntidadBase{
     @Column(name = "cedula", nullable = false)
     private int cedula;
 
-    @Column(name = "descripcion", nullable = false, length = 500)
+    @Column(name = "descripcion", length = 500)
     private String descripcion;
 
     //Relacion

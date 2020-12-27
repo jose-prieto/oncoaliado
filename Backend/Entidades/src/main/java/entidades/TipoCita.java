@@ -6,6 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "TIPO_CITA", schema = "ONCOALIADO")
+@NamedQueries({
+        @NamedQuery(name = "getPrecioTipo", query = "SELECT h.precio FROM HistPrecio h WHERE h.fechaFin = null")
+})
 public class TipoCita extends EntidadBase{
 
     //Atributos

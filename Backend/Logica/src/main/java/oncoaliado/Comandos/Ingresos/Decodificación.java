@@ -21,16 +21,16 @@ public class Decodificación {
 
     public String encodeFront() {
         try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            /*MessageDigest md5 = MessageDigest.getInstance("MD5");
             byte[] llave = md5.digest(this.keyFront.getBytes(StandardCharsets.UTF_8));
             byte[] bytesKey = Arrays.copyOf(llave, 24);
             SecretKey key = new SecretKeySpec(bytesKey, "DESede");
             Cipher cifrado = Cipher.getInstance("DESede");
-            cifrado.init(Cipher.ENCRYPT_MODE, key);
+            cifrado.init(Cipher.ENCRYPT_MODE, key);*/
 
             byte[] textoPlano = password.getBytes(StandardCharsets.UTF_8);
-            byte[] buffer = cifrado.doFinal(textoPlano);
-            byte[] base64Bytes = Base64.encodeBase64(buffer);
+            //byte[] buffer = cifrado.doFinal(textoPlano);
+            byte[] base64Bytes = Base64.encodeBase64(textoPlano);
 
             return new String(base64Bytes);
         }catch(Exception ex) {
@@ -40,15 +40,16 @@ public class Decodificación {
 
     public String decodeFront() {
         try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            /*MessageDigest md5 = MessageDigest.getInstance("MD5");
             byte[] password = Base64.decodeBase64(this.password.getBytes(StandardCharsets.UTF_8));
             byte[] digestOfPassword = md5.digest(this.keyFront.getBytes(StandardCharsets.UTF_8));
             byte[] keyBytes = Arrays.copyOf(digestOfPassword,24);
             SecretKey key = new SecretKeySpec(keyBytes, "DESede");
             Cipher decipher = Cipher.getInstance("DESede");
-            decipher.init(Cipher.DECRYPT_MODE, key);
+            decipher.init(Cipher.DECRYPT_MODE, key);*/
 
-            byte[] textoPlano = decipher.doFinal(password);
+            //byte[] textoPlano = decipher.doFinal(password);
+            byte[] textoPlano = Base64.decodeBase64(this.password);
             return new String(textoPlano, "UTF-8");
         }catch(Exception ex) {
             return ex.getMessage();

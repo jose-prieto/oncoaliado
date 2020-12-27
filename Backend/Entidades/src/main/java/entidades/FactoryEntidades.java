@@ -18,10 +18,6 @@ public class FactoryEntidades {
         return new Estado();
     }
 
-    public static Estado EstadoInstancia(long id) {
-        return new Estado(id);
-    }
-
     public static Evento EventoInstancia() {
         return new Evento();
     }

@@ -62,4 +62,8 @@ public class DtoFactory {
         return new DtoInfoLogin(correo,rol,nombre,apellido);
     }
 
+    public static DtoLogin DtoLoginInstancia() {
+        return new DtoLogin();
+    }
+
 }
