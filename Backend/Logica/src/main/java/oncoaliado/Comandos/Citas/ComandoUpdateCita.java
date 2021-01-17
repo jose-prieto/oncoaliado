@@ -35,9 +35,6 @@ public class ComandoUpdateCita extends ComandoBase {
                 throw new Excepciones("El id de la cita debe ser mayor o igual a 0.");
             }else if(dtoCita.getEstatus() == null) {
                 throw new Excepciones("La cita debe tener un Status.");
-            }else if(!dtoCita.getEstatus().equals("inactiva") && !dtoCita.getTipoCita().equals("pendiente") &&
-                        !dtoCita.getTipoCita().equals("en proceso") && !dtoCita.getTipoCita().equals("lista")) {
-                throw new Excepciones("Los tipo de cita válido son ");
             }else if(dtoCita.getFecha() == null) {
                 throw new Excepciones("La cita debe tener una fecha asignada.");
             }else if(dtoCita.getMedico() == null) {

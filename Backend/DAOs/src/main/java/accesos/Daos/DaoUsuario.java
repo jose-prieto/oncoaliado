@@ -36,6 +36,8 @@ public class DaoUsuario extends Dao<Usuario> {
             } else {
                 throw e;
             }
+        }finally {
+            this._em.clear();
         }
     }
 

@@ -1,7 +1,9 @@
 package oncoaliado.Comandos.Factura;
 
 import accesos.DaoFactory;
+import accesos.Daos.DaoCita;
 import accesos.Daos.DaoFactura;
+import entidades.Cita;
 import entidades.FactoryEntidades;
 import entidades.Factura;
 import excepciones.Excepciones;
@@ -30,10 +32,8 @@ public class ComandoPagarFactura extends ComandoBase {
     public ComandoPagarFactura(DtoFactura dtoFactura) throws Excepciones {
         if (dtoFactura.getId() <= 0) {
             throw new Excepciones("El id de la factura debe ser mayor o igual a 0.");
-        }else if(dtoFactura.getBanco() == null){
-            throw new Excepciones("El dtoPagoFactura debe tener banco asignado.");
-        }else if(dtoFactura.getComprobante() == null){
-            throw new Excepciones("El dtoPagoFactura debe tener un comprobante de pago.");
+        }else if(dtoFactura.getEstatus() != null && !dtoFactura.getEstatus().equals("pagado") && !dtoFactura.getEstatus().equals("rechazada") && !dtoFactura.getEstatus().equals("pendiente")) {
+            throw new Excepciones("Los estatus posibles para la factura a evaluar son 'pagado', 'rechazada'.");
         }else {
             this.idFactura = dtoFactura.getId();
             this.dtoFactura = dtoFactura;
@@ -47,10 +47,18 @@ public class ComandoPagarFactura extends ComandoBase {
         if(this.factura == null) {
             throw new Excepciones("Factura especificada inexistente en la base de datos.");
         }
-        this.factura.setFecha(new GregorianCalendar());
-        this.factura.setEstatus("pagado");
-        this.factura.setComprobante(this.dtoFactura.getComprobante());
-        this.factura.setBanco(this.dtoFactura.getBanco());
+
+        if(this.dtoFactura.getEstatus() != null) {
+            this.factura.setEstatus(this.dtoFactura.getEstatus());
+            if(this.factura.getEstatus().equals("pagado")) {
+                DaoCita daoCita = DaoFactory.DaoCitaInstancia();
+                Cita cita = daoCita.citaFactura(this.factura);
+                cita.setEstatus("en proceso");
+                daoCita.update(cita);
+            }
+        } else {
+            this.factura.setEstatus("pagado");
+        }
         this.factura = daoFactura.update(this.factura);
     }
 

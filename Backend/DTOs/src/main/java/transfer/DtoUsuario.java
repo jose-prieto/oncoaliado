@@ -2,7 +2,7 @@ package transfer;
 
 import java.util.GregorianCalendar;
 
-public class DtoUsuario {
+public class DtoUsuario extends DtoBase {
 
     //Atributos
     private String correo;

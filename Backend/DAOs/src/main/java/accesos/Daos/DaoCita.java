@@ -27,6 +27,8 @@ public class DaoCita extends Dao<Cita> {
             return citas.setParameter("medico", medico).getResultList();
         }catch (Exception ex) {
             return null;
+        } finally {
+            this._em.clear();
         }
     }
 
@@ -39,6 +41,8 @@ public class DaoCita extends Dao<Cita> {
             return resultado;
         }catch (Exception ex) {
             return null;
+        }finally {
+            this._em.clear();
         }
     }
 
@@ -51,6 +55,8 @@ public class DaoCita extends Dao<Cita> {
             return resultado;
         }catch (Exception ex) {
             return null;
+        }finally {
+            this._em.clear();
         }
     }
 
@@ -67,6 +73,8 @@ public class DaoCita extends Dao<Cita> {
             return resultado;
         }catch (Excepciones e) {
             return null;
+        }finally {
+            this._em.clear();
         }
     }
 
@@ -80,6 +88,20 @@ public class DaoCita extends Dao<Cita> {
             return resultado;
         }catch (Exception ex) {
             return null;
+        }finally {
+            this._em.clear();
+        }
+    }
+
+    public Cita citaFactura(Factura factura) {
+        try {
+            TypedQuery<Cita> cita = this._em.createNamedQuery("citaFactura", Cita.class);
+
+            return cita.setParameter("factura", factura).getSingleResult();
+        }catch(Exception e) {
+            throw e;
+        }finally {
+            this._em.clear();
         }
     }
 

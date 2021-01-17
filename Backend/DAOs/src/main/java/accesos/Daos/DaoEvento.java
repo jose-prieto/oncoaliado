@@ -26,6 +26,8 @@ public class DaoEvento extends Dao<Evento> {
             return eventos.setParameter("estatus", "a").getResultList();
         }catch(Exception e) {
             throw e;
+        }finally {
+            this._em.clear();
         }
     }
 }

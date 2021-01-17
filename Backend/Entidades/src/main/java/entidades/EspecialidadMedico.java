@@ -6,6 +6,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "ESPECIALIDAD_MEDICO", schema = "ONCOALIADO")
+@NamedQueries({
+        @NamedQuery(name = "getEspcialidadMedicoCorreo", query = "SELECT e FROM EspecialidadMedico e WHERE e.medico.usuario.correo = :correo")
+})
 public class EspecialidadMedico extends EntidadBase{
 
     //Relaciones

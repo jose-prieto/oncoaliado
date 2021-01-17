@@ -11,7 +11,9 @@ import java.util.GregorianCalendar;
         @NamedQuery(name = "GetCitasPaciente", query = "SELECT c FROM Cita c WHERE c.paciente = :paciente"),
         @NamedQuery(name = "GetCitasPendiente", query = "SELECT c FROM Cita c WHERE c.estatus = :estatus AND c.factura.estatus = :estatusFactura"),
         @NamedQuery(name = "GetCitasInactivas", query = "SELECT c FROM Cita c WHERE c.estatus = :estatus AND c.medico = :medicoEspecialidad"),
-        @NamedQuery(name = "getPrecio", query = "SELECT h.precio FROM HistPrecio h WHERE h.estatus = 'a' AND h.tipoCita = :tipoCita")
+        @NamedQuery(name = "getPrecio", query = "SELECT h.precio FROM HistPrecio h WHERE h.estatus = 'a' AND h.tipoCita = :tipoCita"),
+        @NamedQuery(name = "getCitaFactura", query = "SELECT h.precio FROM HistPrecio h WHERE h.estatus = 'a' AND h.tipoCita = :tipoCita"),
+        @NamedQuery(name = "citaFactura", query = "SELECT c FROM Cita c WHERE c.factura = :factura")
 })
 public class Cita extends EntidadBase{
 

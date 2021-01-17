@@ -1,7 +1,6 @@
 package transfer;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.GregorianCalendar;
 
 public class DtoCita extends DtoBase {

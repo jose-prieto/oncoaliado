@@ -20,10 +20,16 @@ public class DaoTipoCita extends Dao<TipoCita> {
     }
 
     public BigDecimal getPrecio(TipoCita tipoCita) throws Excepciones {
-        if(tipoCita == null) {
-            throw new Excepciones("El tipo de cita no debe ser null.");
+        try {
+            if(tipoCita == null) {
+                throw new Excepciones("El tipo de cita no debe ser null.");
+            }
+            TypedQuery<BigDecimal> precio = this._em.createNamedQuery("getPrecio", BigDecimal.class);
+            return precio.setParameter("tipoCita", tipoCita).getSingleResult();
+        }catch(Exception e) {
+            throw e;
+        }finally {
+            this._em.clear();
         }
-        TypedQuery<BigDecimal> precio = this._em.createNamedQuery("getPrecio", BigDecimal.class);
-        return precio.setParameter("tipoCita", tipoCita).getSingleResult();
     }
 }

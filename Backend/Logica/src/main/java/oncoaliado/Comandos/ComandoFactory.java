@@ -13,7 +13,11 @@ import oncoaliado.Comandos.Lugares.ComandoGetEstados;
 import oncoaliado.Comandos.Lugares.ComandoGetLugares;
 import oncoaliado.Comandos.Lugares.ComandoGetPaises;
 import oncoaliado.Comandos.Medicos.ComandoGetAllMedicos;
+import oncoaliado.Comandos.Medicos.ComandoUpdateMedico;
+import oncoaliado.Comandos.Medicos.ComandoUpdatePaciente;
 import oncoaliado.Comandos.TipoCita.ComandoGetTipoCitas;
+import oncoaliado.Comandos.Usuarios.ComandoGetMedico;
+import oncoaliado.Comandos.Usuarios.ComandoGetPaciente;
 import transfer.*;
 
 import java.util.List;
@@ -127,6 +131,23 @@ public class ComandoFactory {
 
     public static ComandoGetPaises ComandoGetPaisesInstancia() {
         return new ComandoGetPaises();
+    }
+
+    //Usuarios
+    public static ComandoGetPaciente ComandoGetPacienteInstancia(DtoUsuarioCorreo dtoUsuarioCorreo) throws Excepciones{
+        return new ComandoGetPaciente(dtoUsuarioCorreo);
+    }
+
+    public static ComandoGetMedico ComandoGetMedicoInstancia(DtoUsuarioCorreo dtoUsuarioCorreo) throws Excepciones {
+        return new ComandoGetMedico(dtoUsuarioCorreo);
+    }
+
+    public static ComandoUpdateMedico ComandoUpdateMedicoInstancia(DtoEspecialidadMedico dtoEspecialidadMedico) throws Excepciones {
+        return new ComandoUpdateMedico(dtoEspecialidadMedico);
+    }
+
+    public static ComandoUpdatePaciente ComandoUpdatePacienteInstancia(DtoPaciente dtoPaciente) throws Excepciones {
+        return new ComandoUpdatePaciente(dtoPaciente);
     }
 
 }

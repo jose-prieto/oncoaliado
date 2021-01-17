@@ -31,6 +31,8 @@ public class DaoEstado extends Dao<Estado> {
             throw e;
         } catch (Exception e){
             return null;
+        }finally {
+            this._em.clear();
         }
     }
 

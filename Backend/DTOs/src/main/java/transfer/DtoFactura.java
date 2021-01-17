@@ -10,6 +10,7 @@ public class DtoFactura extends DtoBase {
     private String comprobante;
     private String banco;
     private BigDecimal total;
+    private String estatus;
 
     //Contructor
     public DtoFactura() {
@@ -47,5 +48,13 @@ public class DtoFactura extends DtoBase {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+
+    public String getEstatus() {
+        return estatus;
+    }
+
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
     }
 }
